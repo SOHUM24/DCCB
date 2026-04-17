@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0D1B2A">
+<title>Data Repository — DCCB UP Framework · NABARD FY2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{--ink:#0D1B2A;--saffron:#E8750A;--saffron-l:#FF9A40;--gold:#C9920A;--gold-l:#F0B830;--sage:#2D6A4F;--sage-l:#40916C;--sky:#1565C0;--sky-l:#42A5F5;--sand:#FDF6E8;--cream:#FEFAF2;--text1:#0D1B2A;--text2:#3D4F6A;--text3:#7A8FA6;--border:rgba(13,27,42,.12);--border-l:rgba(13,27,42,.06);--radius:16px;--radius-sm:8px;--shadow:0 8px 40px rgba(13,27,42,.14);--shadow-sm:0 3px 16px rgba(13,27,42,.08);}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;color:var(--text1);background:var(--cream);overflow-x:hidden;}
+::selection{background:var(--saffron);color:#fff;}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--ink);}::-webkit-scrollbar-thumb{background:var(--saffron);border-radius:3px;}
+#prog{position:fixed;top:0;left:0;height:4px;z-index:9999;background:linear-gradient(90deg,var(--saffron),var(--gold-l),var(--sage-l));width:0%;box-shadow:0 0 12px rgba(232,117,10,.4);}
+#nav{position:fixed;top:4px;left:0;right:0;z-index:1000;background:rgba(13,27,42,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(232,117,10,.2);height:60px;display:flex;align-items:center;padding:0 24px;overflow-x:auto;gap:0;}
+#nav::-webkit-scrollbar{height:0;}
+.nb{display:flex;align-items:center;gap:9px;margin-right:18px;text-decoration:none;flex-shrink:0;}
+.nbl{width:30px;height:30px;background:linear-gradient(135deg,var(--saffron),var(--gold-l));border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:var(--ink);}
+.nbn{font-family:'DM Mono',monospace;color:var(--gold-l);font-size:12px;font-weight:500;letter-spacing:.5px;}
+#nav a.nl{color:rgba(255,255,255,.42);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.2px;text-transform:uppercase;text-decoration:none;padding:0 9px;height:60px;display:flex;align-items:center;border-bottom:2.5px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s;flex-shrink:0;}
+#nav a.nl:hover,#nav a.nl.active{color:var(--gold-l);border-bottom-color:var(--saffron);}
+.nbk{display:flex;align-items:center;gap:6px;color:var(--saffron-l);font-family:'DM Mono',monospace;font-size:9px;text-decoration:none;letter-spacing:.8px;margin-left:auto;flex-shrink:0;padding:0 14px;height:60px;border-left:1px solid rgba(255,255,255,.08);font-weight:600;transition:color .2s;}
+.nbk:hover{color:var(--gold-l);}
+#hero{min-height:40vh;position:relative;overflow:hidden;background:linear-gradient(160deg,#0A1220 0%,#0D1B3E 20%,#162B5A 40%,#B34A08 65%,#E07810 80%,#F4B835 100%);display:flex;align-items:flex-end;padding-top:60px;}
+.grain{position:absolute;inset:0;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px;}
+.hin{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:56px 52px 48px;width:100%;}
+.kk{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.10);backdrop-filter:blur(10px);color:var(--gold-l);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;padding:7px 18px;border-radius:28px;margin-bottom:24px;}
+.kd{width:7px;height:7px;background:var(--saffron);border-radius:50%;animation:pulse 1.6s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.3;transform:scale(.7);}}
+.h1r{font-family:'Playfair Display',serif;font-size:clamp(28px,4.5vw,58px);font-weight:900;color:#fff;line-height:1.08;letter-spacing:-1.5px;text-shadow:0 6px 40px rgba(0,0,0,.5);margin-bottom:12px;}
+.h1r .ac{color:var(--gold-l);}
+.hs{font-size:14px;color:rgba(255,255,255,.62);max-width:640px;line-height:1.75;margin-bottom:28px;}
+.rs{display:flex;gap:12px;flex-wrap:wrap;}
+.rst{background:rgba(13,27,42,.72);backdrop-filter:blur(16px);border:1px solid rgba(232,117,10,.3);border-radius:10px;padding:12px 18px;text-align:center;min-width:100px;}
+.rsn{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--saffron-l);display:block;line-height:1;}
+.rsl{font-family:'DM Mono',monospace;font-size:8.5px;color:rgba(255,255,255,.36);text-transform:uppercase;letter-spacing:.8px;margin-top:3px;display:block;}
+.wrap{max-width:1280px;margin:0 auto;padding:0 46px;}
+.sec{padding:72px 0;}
+.sa{background:var(--sand);}
+.sd{background:var(--ink);color:#fff;}
+.sw{background:linear-gradient(135deg,#FDF0DC,#F5E8C8);}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;}
+.sh{margin-bottom:38px;}
+.se{font-family:'DM Mono',monospace;font-size:11px;color:var(--saffron);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;}
+.st{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,36px);font-weight:700;color:var(--ink);line-height:1.14;margin-bottom:7px;}
+.st .ac{color:var(--sage);}
+.sr{width:56px;height:3.5px;margin-bottom:14px;border-radius:2px;background:linear-gradient(90deg,var(--saffron),var(--gold-l));}
+.sd2{font-size:14px;color:var(--text2);line-height:1.76;max-width:760px;}
+.sd .st{color:#fff;}.sd .se{color:var(--saffron-l);}.sd .sd2{color:rgba(255,255,255,.6);}.sd .sr{background:linear-gradient(90deg,var(--saffron-l),var(--gold-l));}
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s;}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+.cs{background:rgba(45,106,79,.08);border-left:4px solid var(--sage-l);border-radius:var(--radius-sm);padding:12px 15px;margin-top:12px;font-size:12.5px;color:var(--text2);line-height:1.65;}
+.cf{background:rgba(232,117,10,.08);border-left:4px solid var(--saffron);border-radius:var(--radius-sm);padding:12px 15px;margin-top:12px;font-size:12.5px;color:var(--text2);line-height:1.65;}
+.cg{background:rgba(201,146,10,.08);border-left:4px solid var(--gold-l);border-radius:var(--radius-sm);padding:12px 15px;margin-top:12px;font-size:12.5px;color:var(--text2);line-height:1.65;}
+.ck{background:rgba(21,101,192,.08);border-left:4px solid var(--sky-l);border-radius:var(--radius-sm);padding:12px 15px;margin-top:12px;font-size:12.5px;color:var(--text2);line-height:1.65;}
+.cd{background:rgba(232,117,10,.1);border-left:4px solid var(--saffron-l);border-radius:var(--radius-sm);padding:12px 15px;margin-top:12px;font-size:12.5px;color:rgba(255,255,255,.82);line-height:1.65;}
+.tw{overflow-x:auto;border-radius:var(--radius);box-shadow:var(--shadow-sm);}
+.tb{width:100%;border-collapse:collapse;font-size:12.5px;}
+.tb thead tr{background:var(--ink);}
+.tb thead th{padding:12px 14px;text-align:left;color:var(--gold-l);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;white-space:nowrap;}
+.tb tbody tr{transition:background .15s;}
+.tb tbody tr:nth-child(even){background:var(--sand);}
+.tb tbody tr:hover{background:rgba(232,117,10,.06);}
+.tb td{padding:10px 14px;color:var(--text1);border-bottom:1px solid var(--border-l);vertical-align:top;line-height:1.5;}
+.sd .tb tbody td{color:rgba(255,255,255,.82);}
+.sd .tb tbody tr:nth-child(even){background:rgba(255,255,255,.04);}
+.sd .tb tbody tr:hover{background:rgba(232,117,10,.1);}
+.tsg{color:var(--sage);font-weight:600;}.tsf{color:var(--saffron);font-weight:600;}.tsk{color:var(--sky);font-weight:600;}.tgd{color:var(--gold);font-weight:600;}.trd{color:#B83030;font-weight:600;}.kn{font-weight:700;color:var(--ink);}
+.sd .kn{color:#fff;}
+.cb{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-sm);}
+.cbd{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:22px;}
+.cb h3,.cbd h3{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.cbd h3{color:#fff;}
+.csb{font-size:10.5px;color:var(--text3);margin-bottom:14px;font-family:'DM Mono',monospace;}
+.cbd .csb{color:rgba(255,255,255,.35);}
+.cw{position:relative;height:280px;}
+.cwl{position:relative;height:340px;}
+.dc{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;}
+.dcard{background:#fff;border:1px solid var(--border);border-radius:11px;padding:15px 12px;text-align:center;border-top:4px solid var(--saffron);transition:transform .2s;}
+.dcard:hover{transform:translateY(-3px);}
+.dcard.sg{border-top-color:var(--sage-l);}
+.dcard.gd{border-top-color:var(--gold-l);}
+.dcard.sk{border-top-color:var(--sky-l);}
+.dv{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--saffron);display:block;line-height:1;margin-bottom:3px;}
+.dcard.sg .dv{color:var(--sage);}
+.dcard.gd .dv{color:var(--gold);}
+.dcard.sk .dv{color:var(--sky);}
+.dl{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.4px;line-height:1.4;}
+.ds{font-family:'DM Mono',monospace;font-size:8.5px;color:var(--saffron);margin-top:4px;display:block;}
+.fb{background:var(--ink);border-radius:var(--radius);padding:18px 22px;margin-bottom:12px;border:1px solid rgba(232,117,10,.2);}
+.feq{font-size:16px;color:#fff;text-align:center;line-height:1.9;font-family:'DM Mono',monospace;}
+.fn{font-size:10px;color:rgba(255,255,255,.48);text-align:center;margin-top:4px;}
+.fv{margin-top:10px;border-top:1px solid rgba(255,255,255,.08);padding-top:9px;display:flex;flex-wrap:wrap;gap:6px;}
+.fvi{background:rgba(255,255,255,.06);border-radius:5px;padding:5px 10px;font-size:10.5px;color:rgba(255,255,255,.72);line-height:1.5;}
+.fvi strong{color:var(--gold-l);}
+.ban{background:var(--ink);padding:30px 36px;position:relative;overflow:hidden;border-radius:var(--radius);margin-bottom:38px;}
+.ban::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(232,117,10,.18),transparent 60%);}
+.ban::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--saffron),var(--gold-l),transparent 80%);}
+.bin{position:relative;z-index:2;}
+.be{font-family:'DM Mono',monospace;font-size:10px;color:var(--saffron-l);letter-spacing:3px;text-transform:uppercase;margin-bottom:7px;}
+.bt{font-family:'Playfair Display',serif;font-size:clamp(16px,2.5vw,28px);font-weight:700;color:#fff;line-height:1.12;}
+.bt .ac{color:var(--gold-l);}
+.bs{color:rgba(255,255,255,.44);margin-top:7px;font-size:12.5px;max-width:580px;line-height:1.6;}
+.tag{display:inline-block;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;padding:2px 8px;border-radius:20px;font-weight:600;margin:1px;}
+.tdm{background:rgba(45,106,79,.12);color:var(--sage);}
+.tpd{background:rgba(21,101,192,.12);color:var(--sky);}
+.tpc{background:rgba(232,117,10,.12);color:var(--saffron);}
+.cstr{display:grid;grid-template-columns:repeat(4,1fr);border-radius:var(--radius);overflow:hidden;margin-bottom:20px;box-shadow:var(--shadow-sm);}
+.cc{padding:16px 10px;text-align:center;}
+.cc.mn{background:#8B1A1A;}.cc.pc{background:var(--saffron);}.cc.pd{background:var(--sky);}.cc.dm{background:var(--sage);}
+.cv{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;display:block;line-height:1;}
+.cl{font-family:'DM Mono',monospace;font-size:8px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px;margin-top:4px;display:block;}
+.ew{border-radius:var(--radius-sm);padding:11px 14px;margin-bottom:8px;border-left:4px solid;}
+.ew.eg{background:rgba(45,106,79,.08);border-color:var(--sage-l);}
+.ew.ea{background:rgba(201,146,10,.08);border-color:var(--gold-l);}
+.ew.eo{background:rgba(232,117,10,.08);border-color:var(--saffron);}
+.ew.er{background:rgba(183,28,28,.08);border-color:#C62828;}
+.ew strong{display:block;margin-bottom:3px;font-size:12.5px;}
+.ew.eg strong{color:var(--sage);}.ew.ea strong{color:var(--gold);}.ew.eo strong{color:var(--saffron);}.ew.er strong{color:#C62828;}
+.ew p{font-size:11.5px;color:var(--text2);line-height:1.55;}
+.sg2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.sc2{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:15px 17px;box-shadow:var(--shadow-sm);border-left:4px solid var(--saffron);scroll-margin-top:80px;transition:transform .2s,box-shadow .2s;}
+.sc2:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+.sct{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px;}
+.sn{font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:var(--saffron);background:rgba(232,117,10,.1);padding:2px 8px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
+.sy{font-family:'DM Mono',monospace;font-size:9px;color:var(--text3);background:var(--sand);padding:2px 7px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
+.stt{font-weight:700;color:var(--ink);font-size:12.5px;line-height:1.4;flex:1;}
+.sdt{font-size:11.5px;color:var(--text2);line-height:1.6;}
+.stg{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;}
+.stg span{font-size:9.5px;padding:2px 7px;border-radius:10px;background:var(--sand);color:var(--text2);border:1px solid var(--border);}
+.stg .sg{background:rgba(45,106,79,.08);color:var(--sage);border-color:rgba(45,106,79,.2);}
+.stg .sf{background:rgba(232,117,10,.08);color:var(--saffron);border-color:rgba(232,117,10,.2);}
+.stg .gd{background:rgba(201,146,10,.08);color:var(--gold);border-color:rgba(201,146,10,.2);}
+.stg .sk{background:rgba(21,101,192,.08);color:var(--sky);border-color:rgba(21,101,192,.2);}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+.rv.in{opacity:1;transform:translateY(0);}
+[data-d="1"]{transition-delay:.08s;}[data-d="2"]{transition-delay:.16s;}[data-d="3"]{transition-delay:.24s;}[data-d="4"]{transition-delay:.32s;}
+.mt12{margin-top:12px;}.mt16{margin-top:16px;}.mt24{margin-top:24px;}.mt32{margin-top:32px;}.mt40{margin-top:40px;}.mt48{margin-top:48px;}
+.tc{text-align:center;}
+.fm{font-family:'DM Mono',monospace;}
+.fs{font-family:'Playfair Display',serif;}
+footer{background:var(--ink);padding:38px 0 18px;position:relative;}
+footer::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(232,117,10,.06),transparent 60%);pointer-events:none;}
+.fw{position:relative;z-index:2;}
+.fbt{border-top:1px solid rgba(255,255,255,.08);padding-top:16px;margin-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.fcp{font-size:11px;color:rgba(255,255,255,.2);}
+.fhi{font-family:'Playfair Display',serif;font-size:16px;color:var(--saffron-l);font-style:italic;}
+@media(max-width:900px){.g2,.g3{grid-template-columns:1fr;}.dc{grid-template-columns:1fr 1fr;}.sg2{grid-template-columns:1fr;}.cstr{grid-template-columns:1fr 1fr;}.wrap{padding:0 18px;}.hin{padding:38px 18px;}}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<nav id="nav">
+  <a href="index.html" class="nb"><div class="nbl">D</div><span class="nbn">DCCB·UP</span></a>
+  <a href="#landscape" class="nl">Landscape</a>
+  <a href="#kcc" class="nl">KCC Data</a>
+  <a href="#compliance" class="nl">Compliance</a>
+  <a href="#costs" class="nl">Cost Model</a>
+  <a href="#npa" class="nl">NPA/EWS</a>
+  <a href="#gbpem" class="nl">GBPEM</a>
+  <a href="#mvds" class="nl">MVDS</a>
+  <a href="#allsrc" class="nl">All Sources</a>
+  <a href="index.html" class="nbk">&#8592; Back to Presentation</a>
+</nav>
+
+<section id="hero">
+  <div class="grain"></div>
+  <div class="hin">
+    <div class="kk"><div class="kd"></div> Data Repository &middot; Evidence Base &middot; NABARD FY2025</div>
+    <h1 class="h1r">Complete <span class="ac">Data Sources</span><br>&amp; Evidence Repository</h1>
+    <p class="hs">All tables, formulae, calculations and referenced data underpinning the DCCB UP AI Readiness Framework. 20 primary sources cross-validated across NABARD reports, RBI circulars and UP field diagnostics 2023&ndash;2025.</p>
+    <div class="rs">
+      <div class="rst"><span class="rsn">20</span><span class="rsl">Primary Sources</span></div>
+      <div class="rst"><span class="rsn">50</span><span class="rsl">DCCBs Covered (UP)</span></div>
+      <div class="rst"><span class="rsn">351</span><span class="rsl">DCCBs India FY25</span></div>
+      <div class="rst"><span class="rsn">FY2025</span><span class="rsl">Data Vintage</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1 LANDSCAPE -->
+<section id="landscape" class="sec">
+<div class="wrap">
+<div class="ban rv"><div class="bin">
+  <div class="be">Section 1 &middot; Cooperative Banking Landscape &mdash; India &amp; UP</div>
+  <div class="bt">The <span class="ac">DCCB Ecosystem</span> &mdash; Scale, Structure &amp; Current State</div>
+  <p class="bs">Sources: S-01 (NABARD Annual Report 2023&ndash;24) &middot; S-02 (RBI Report) &middot; S-07 (PACS Programme) &middot; S-11 (CBS Compliance 2025) &middot; S-20 (UP State Co-op Bank 2023&ndash;24)</p>
+</div></div>
+<div class="dc rv">
+  <div class="dcard"><span class="dv">351</span><span class="dl">Total DCCBs India (FY 2024&ndash;25)</span><span class="ds">S-01 &middot; NABARD Annual Report</span></div>
+  <div class="dcard sg"><span class="dv" style="color:var(--sage);">50</span><span class="dl">DCCBs in Uttar Pradesh</span><span class="ds" style="color:var(--sage);">S-20 &middot; UP State Co-op Bank</span></div>
+  <div class="dcard gd"><span class="dv" style="color:var(--gold);font-size:18px;">63,000+</span><span class="dl">Functional PACS nationwide</span><span class="ds" style="color:var(--gold);">S-07 &middot; Min. of Cooperation</span></div>
+  <div class="dcard sk"><span class="dv" style="color:var(--sky);font-size:16px;">&#8377;42,000+Cr</span><span class="dl">NABARD infusion FY24&ndash;25</span><span class="ds" style="color:var(--sky);">S-01 &middot; NABARD Annual Report</span></div>
+</div>
+<div class="g2 rv mt24">
+  <div class="cb"><h3>UP DCCB Distribution by RFI Category</h3><div class="csb">Field diagnostic estimate &middot; Sources: S-12, S-20 &middot; ~50 UP DCCBs mapped</div><div class="cw"><canvas id="rfiChart"></canvas></div></div>
+  <div>
+    <div class="card" style="border-top:4px solid var(--sage);margin-bottom:14px;">
+      <div style="text-align:center;padding:8px 0 12px;">
+        <div style="font-family:'Playfair Display',serif;font-size:50px;font-weight:700;color:var(--sage);line-height:1;">99.9%</div>
+        <div style="font-size:13px;color:var(--text2);margin-top:5px;font-weight:600;">Cooperative banks on CBS &mdash; March 2025</div>
+        <div style="font-size:11.5px;color:var(--text3);margin-top:3px;">All except 1 UCB in West Bengal &middot; Source: S-11</div>
+      </div>
+      <div class="cs"><strong>Key Finding (S-11):</strong> CBS mandate achieved. But CBS &#8800; digitalisation. Field diagnostics confirm most UP DCCBs use CBS for basic entry only &mdash; analytics, compliance and PACS linkage remain overwhelmingly manual.</div>
+    </div>
+    <div class="card" style="border-top:4px solid var(--saffron);">
+      <div class="fm" style="font-size:10px;color:var(--saffron);letter-spacing:2px;margin-bottom:7px;">PM JAN DHAN YOJANA &middot; S-05</div>
+      <div style="font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--ink);">53.13 Crore</div>
+      <div style="font-size:12px;color:var(--text2);margin-top:4px;">Beneficiary accounts as of March 2025. RuPay debit card issuance ongoing. Zero-balance accounts included. Cooperative bank share: ~8%.</div>
+    </div>
+  </div>
+</div>
+<div class="mt40 rv">
+  <h3 class="fs" style="font-size:19px;font-weight:700;color:var(--ink);margin-bottom:12px;">UP DCCB Field Diagnostics &mdash; Baseline Conditions <span style="color:var(--saffron);">(S-12 &middot; NABARD 2024)</span></h3>
+  <div class="tw">
+    <table class="tb">
+      <thead><tr><th>Observation</th><th>Current State (Most UP DCCBs)</th><th>Risk Level</th><th>RFI Category</th></tr></thead>
+      <tbody>
+        <tr><td class="kn">Data Infrastructure</td><td>CBS for transactions; NPA in Excel; PACS data on paper. No unified data layer.</td><td class="trd">Critical</td><td><span class="tag tpc">PDC-RFI</span></td></tr>
+        <tr><td class="kn">CRAR/SLR Computation</td><td>Fully manual in Excel. 40+ person-hours/cycle. Audit errors undetected.</td><td class="trd">Regulatory Risk</td><td><span class="tag tpd">PD-RFI</span></td></tr>
+        <tr><td class="kn">Hardware Capacity</td><td>2&ndash;4 desktops per branch. Intermittent internet. No biometric at PACS level.</td><td class="tsf">Moderate</td><td><span class="tag tpc">PDC-RFI</span></td></tr>
+        <tr><td class="kn">KYC / Identity Verification</td><td>Visual document inspection only. No Aadhaar eKYC. Identity fraud risk elevated.</td><td class="trd">Compliance Gap</td><td><span class="tag tpc">PDC-RFI</span></td></tr>
+        <tr><td class="kn">NPA Classification</td><td>Periodic manual review. Recovery tracked in physical registers. No EWS.</td><td class="trd">Credit Risk</td><td><span class="tag tpd">PD-RFI</span></td></tr>
+        <tr><td class="kn">Staff Tech Capacity</td><td>CBS for basic entry only. Analytics in 1&ndash;2 staff. No training programme.</td><td class="tsf">Moderate</td><td><span class="tag tpc">PDC-RFI</span></td></tr>
+        <tr><td class="kn">PACS Digital Linkage</td><td>Zero at PDC-RFI; partial at PD-RFI. National PACS ERP rollout underway.</td><td class="trd">Structural</td><td><span class="tag tpc">PDC-RFI</span></td></tr>
+        <tr><td class="kn">NACH/eMandate Coverage</td><td>&lt;5% of loan accounts on NACH. Seasonal collection via field officers.</td><td class="tsf">Operational</td><td><span class="tag tpd">PD-RFI</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- SECTION 2 KCC -->
+<section id="kcc" class="sec sa">
+<div class="wrap">
+<div class="sh rv">
+  <div class="se">Section 2 &middot; KCC Loan Origination &mdash; Evidence &amp; Calculations</div>
+  <h2 class="st">Digital KCC LOS &mdash; <span class="ac">TAT, Cost, Accuracy &amp; API Stack</span></h2>
+  <div class="sr"></div>
+  <p class="sd2">Sources: S-14 (NABARD Maharashtra AI Pilot 2024), S-15 (NABARD Telangana/Odisha PACS Study 2023), S-12 (UP DCCB Field Research 2024), S-18 (PMFBY Annual Report 2023&ndash;24). All figures are measured outcomes or field estimates with disclosed methodology.</p>
+</div>
+<div class="cstr rv">
+  <div class="cc mn"><span class="cv">14&ndash;42 days</span><span class="cl">Manual Baseline</span></div>
+  <div class="cc pc"><span class="cv">10&ndash;14 days</span><span class="cl">PDC-RFI (Hybrid)</span></div>
+  <div class="cc pd"><span class="cv">5&ndash;7 days</span><span class="cl">PD-RFI (Semi-Digital)</span></div>
+  <div class="cc dm"><span class="cv">2&ndash;3 days</span><span class="cl">DM-RFI (AI-Powered)</span></div>
+</div>
+<div class="g2 rv">
+  <div class="cb"><h3>KCC Loan TAT &mdash; Days by RFI Category</h3><div class="csb">Sources: S-15 (Telangana/Odisha) &middot; S-12 (UP Field 2024) &middot; Max reduction 93%</div><div class="cw"><canvas id="tatChart"></canvas></div></div>
+  <div class="cb"><h3>Credit Accuracy &amp; Cost per Application</h3><div class="csb">Source: S-14 (NABARD Maharashtra AI Pilot 2024)</div><div class="cw"><canvas id="accChart"></canvas></div></div>
+</div>
+<div class="tw rv mt32">
+  <table class="tb">
+    <thead><tr><th>Metric</th><th>Manual Baseline</th><th>PDC-RFI</th><th>PD-RFI</th><th>DM-RFI (AI)</th><th>Max Gain</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td class="kn">Loan TAT</td><td>14&ndash;42 days</td><td class="tsf">10&ndash;14 days</td><td class="tsk">5&ndash;7 days</td><td class="tsg">2&ndash;3 days</td><td class="tgd">93% &#8595;</td><td class="fm" style="font-size:10px;color:var(--text3);">S-15</td></tr>
+      <tr><td class="kn">Credit Accuracy</td><td>~67%</td><td class="tsf">~70%</td><td class="tsk">~78%</td><td class="tsg">~87%</td><td class="tgd">+20 pp</td><td class="fm" style="font-size:10px;color:var(--text3);">S-14</td></tr>
+      <tr><td class="kn">Cost per Application</td><td>&#8377;1,200</td><td class="tsf">&#8377;750</td><td class="tsk">&#8377;500</td><td class="tsg">&#8377;250</td><td class="tgd">79% &#8595;</td><td class="fm" style="font-size:10px;color:var(--text3);">S-12</td></tr>
+      <tr><td class="kn">PMFBY Enrolment at KCC</td><td>&lt;40%</td><td class="tsf">50&ndash;65%</td><td class="tsk">~90%</td><td class="tsg">98%+ (auto)</td><td class="tgd">+58 pp</td><td class="fm" style="font-size:10px;color:var(--text3);">S-18</td></tr>
+      <tr><td class="kn">KCC NPA at 12 months</td><td>8&ndash;12%</td><td class="tsf">7&ndash;10%</td><td class="tsk">5&ndash;7%</td><td class="tsg">3&ndash;5%</td><td class="tgd">~60% &#8595;</td><td class="fm" style="font-size:10px;color:var(--text3);">S-06</td></tr>
+      <tr><td class="kn">Deposit Growth (PACS)</td><td>Baseline</td><td class="tsf">+5&ndash;8%</td><td class="tsk">+10&ndash;13%</td><td class="tsg">+15.4%</td><td class="tgd">+15.4%</td><td class="fm" style="font-size:10px;color:var(--text3);">S-15</td></tr>
+      <tr><td class="kn">Credit Inclusion Gain</td><td>&mdash;</td><td class="tsf">+5&ndash;8%</td><td class="tsk">+12&ndash;15%</td><td class="tsg">+18%</td><td class="tgd">+18%</td><td class="fm" style="font-size:10px;color:var(--text3);">S-14</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="mt32 rv">
+  <h3 class="fs" style="font-size:18px;font-weight:700;color:var(--ink);margin-bottom:12px;">DM-RFI KCC API Integration Stack</h3>
+  <div class="tw">
+    <table class="tb">
+      <thead><tr><th>API / Data Source</th><th>Provider</th><th>Cost per Call</th><th>Purpose</th><th>RFI Level</th></tr></thead>
+      <tbody>
+        <tr><td class="kn">Aadhaar eKYC</td><td>UIDAI (via licensed KUA)</td><td>&#8377;3&ndash;5 per eKYC</td><td>Customer identity, auto-populate KCC form</td><td><span class="tag tpc">PDC+</span></td></tr>
+        <tr><td class="kn">Bhulekh Land Records API</td><td>UP State Revenue Dept</td><td>Free / Gov integration</td><td>Khasra no., land area, ownership verification</td><td><span class="tag tdm">DM-RFI</span></td></tr>
+        <tr><td class="kn">PM Kisan DB</td><td>Ministry of Agriculture (GoI)</td><td>Free (gov integration)</td><td>Farm size, income, subsidy payment history</td><td><span class="tag tdm">DM-RFI</span></td></tr>
+        <tr><td class="kn">CIBIL / Equifax Credit Score</td><td>TransUnion / Equifax</td><td>&#8377;5&ndash;10 per query</td><td>DPD history, existing liabilities, credit score</td><td><span class="tag tpd">PD+</span></td></tr>
+        <tr><td class="kn">Satellite NDVI (ISRO NRSC)</td><td>ISRO National Remote Sensing Centre</td><td>Subscription model</td><td>Crop zone vegetation index for AI risk score</td><td><span class="tag tdm">DM-RFI</span></td></tr>
+        <tr><td class="kn">IMD Weather API</td><td>India Meteorological Dept</td><td>Free (API key)</td><td>Rainfall deviation, drought risk input</td><td><span class="tag tdm">DM-RFI</span></td></tr>
+        <tr><td class="kn">PMFBY (AIDE Portal)</td><td>Ministry of Finance (GoI)</td><td>Auto-premium deduction</td><td>Crop insurance auto-enrolment at KCC disbursal</td><td><span class="tag tpd">PD+</span></td></tr>
+        <tr><td class="kn">NACH eMandate</td><td>NPCI</td><td>&#8377;2&ndash;5 setup</td><td>Seasonal repayment auto-debit (kharif/rabi)</td><td><span class="tag tpd">PD+</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cs mt16"><strong>AI Model (DM-RFI) &mdash; S-14:</strong> XGBoost + Random Forest ensemble trained on CBS repayment history, NDVI, IMD weather, CIBIL scores and NACH bounce patterns. Output: PD score 0&ndash;100. Threshold &gt;65 &rarr; mandatory BM review. Threshold &lt;35 &rarr; auto-approve within sanctioned limits. Accuracy: 87% vs 67% manual (NABARD Maharashtra Pilot 2024).</div>
+</div>
+</div>
+</section>
+
+<!-- SECTION 3 COMPLIANCE -->
+<section id="compliance" class="sec sd">
+<div class="wrap">
+<div class="sh rv">
+  <div class="se">Section 3 &middot; Regulatory Compliance &mdash; Formulae &amp; Effort Data</div>
+  <h2 class="st" style="color:#fff;">CRAR &middot; SLR &middot; CRR &middot; ECL &mdash; <span style="color:var(--saffron-l);">Formulae &amp; Automation Impact</span></h2>
+  <div class="sr"></div>
+  <p class="sd2">Sources: S-08 (RBI Master Circular 2024), S-12 (NABARD Diagnostic Study 2024). Compliance engine is the highest-ROI internal product: 780+ person-hours &rarr; 90 hours per cycle; 63-day cycle &rarr; 24 days.</p>
+</div>
+<div class="g3 rv">
+  <div class="fb" style="margin-bottom:0;">
+    <div class="fm" style="font-size:9.5px;color:var(--saffron-l);letter-spacing:2px;margin-bottom:8px;">CRAR &middot; S-08</div>
+    <div class="feq">CRAR = (T1 + T2) &divide; RWA &times; 100</div>
+    <div class="fn">Minimum: 9% for cooperative banks (RBI Master Circular 2024)</div>
+    <div class="fv"><div class="fvi"><strong>T1</strong> = Tier 1: paid-up capital + reserves</div><div class="fvi"><strong>T2</strong> = Tier 2: revaluation reserves + subordinated debt</div><div class="fvi"><strong>RWA</strong> = Risk-Weighted Assets: each asset &times; risk weight</div></div>
+  </div>
+  <div class="fb" style="margin-bottom:0;">
+    <div class="fm" style="font-size:9.5px;color:var(--gold-l);letter-spacing:2px;margin-bottom:8px;">SLR &middot; S-08</div>
+    <div class="feq">SLR = SLR Securities &divide; NDTL &times; 100</div>
+    <div class="fn">Minimum: 18.00% of NDTL, computed fortnightly (RBI 2024)</div>
+    <div class="fv"><div class="fvi"><strong>SLR Securities</strong> = G-Secs, NABARD bonds, state govt. securities</div><div class="fvi"><strong>NDTL</strong> = Net Demand &amp; Time Liabilities (savings + FD + current, net interbank)</div></div>
+  </div>
+  <div class="fb" style="margin-bottom:0;">
+    <div class="fm" style="font-size:9.5px;color:var(--sage-l);letter-spacing:2px;margin-bottom:8px;">ECL (IFRS 9) &middot; S-08</div>
+    <div class="feq">ECL = PD &times; LGD &times; EAD</div>
+    <div class="fn">Expected Credit Loss &mdash; NPA EWS provisioning basis (IFRS 9)</div>
+    <div class="fv"><div class="fvi"><strong>PD</strong> = Probability of Default (AI/ML score)</div><div class="fvi"><strong>LGD</strong> = Loss Given Default (collateral coverage)</div><div class="fvi"><strong>EAD</strong> = Exposure at Default (outstanding balance)</div></div>
+  </div>
+</div>
+<div class="g2 rv mt32">
+  <div>
+    <h3 style="color:#fff;font-family:'Playfair Display',serif;font-size:16px;margin-bottom:10px;">RBI Risk Weights for CRAR (S-08)</h3>
+    <div class="tw">
+      <table class="tb">
+        <thead><tr><th>Asset Category</th><th>Risk Weight</th><th>Capital Impact</th></tr></thead>
+        <tbody>
+          <tr><td class="kn">Govt Securities (G-Secs)</td><td class="tsg">0%</td><td>No capital required</td></tr>
+          <tr><td class="kn">AAA-Rated Corporate Bonds</td><td class="tsk">20%</td><td>Low capital charge</td></tr>
+          <tr><td class="kn">Secured Retail (KCC loans)</td><td class="tgd">75%</td><td>Moderate capital charge</td></tr>
+          <tr><td class="kn">Unsecured Loans</td><td class="tsf">100%</td><td>Full capital charge</td></tr>
+          <tr><td class="kn">Non-Performing Assets</td><td class="trd">150%</td><td>Punitive &mdash; core EWS business case</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cd mt16"><strong style="color:var(--gold-l);">Critical Insight:</strong> A &#8377;1 crore NPA requires &#8377;1.5 crore RWA coverage at 9% CRAR = &#8377;13.5 lakh minimum capital. A performing KCC loan needs only &#8377;6.75 lakh. EWS prevents NPA formation &mdash; directly preserving CRAR headroom.</div>
+  </div>
+  <div class="cbd"><h3>Compliance Effort Hours per Cycle (S-12)</h3><div class="csb">780+ manual hrs &rarr; 90 hrs at DM-RFI (88% reduction)</div><div class="cw"><canvas id="compChart"></canvas></div></div>
+</div>
+<div class="tw rv mt32">
+  <table class="tb">
+    <thead><tr><th>Regulatory Process</th><th>Manual (hrs)</th><th>PDC-RFI</th><th>PD-RFI</th><th>DM-RFI</th><th>Saving (DM)</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td class="kn">CRAR Computation</td><td>40 hrs</td><td class="tsf">20 hrs</td><td class="tsk">8 hrs</td><td class="tsg">2 hrs</td><td class="tgd">95% &#8595;</td><td class="fm" style="font-size:10px;color:rgba(255,255,255,.5);">S-12</td></tr>
+      <tr><td class="kn">SLR Computation</td><td>10 hrs</td><td class="tsf">4 hrs</td><td class="tsk">1 hr</td><td class="tsg">Real-time</td><td class="tgd">100% &#8595;</td><td class="fm" style="font-size:10px;color:rgba(255,255,255,.5);">S-12</td></tr>
+      <tr><td class="kn">CRR Computation</td><td>5 hrs</td><td class="tsf">2 hrs</td><td class="tsk">0.5 hr</td><td class="tsg">Real-time</td><td class="tgd">100% &#8595;</td><td class="fm" style="font-size:10px;color:rgba(255,255,255,.5);">S-08</td></tr>
+      <tr><td class="kn">NABARD NBS Returns</td><td>200 hrs</td><td class="tsf">100 hrs</td><td class="tsk">50 hrs</td><td class="tsg">20 hrs</td><td class="tgd">90% &#8595;</td><td class="fm" style="font-size:10px;color:rgba(255,255,255,.5);">S-12</td></tr>
+      <tr><td class="kn">KCC Utilisation Return</td><td>80 hrs</td><td class="tsf">40 hrs</td><td class="tsk">15 hrs</td><td class="tsg">5 hrs</td><td class="tgd">94% &#8595;</td><td class="fm" style="font-size:10px;color:rgba(255,255,255,.5);">S-01</td></tr>
+      <tr><td class="kn">Recovery Returns</td><td>120 hrs</td><td class="tsf">60 hrs</td><td class="tsk">25 hrs</td><td class="tsg">10 hrs</td><td class="tgd">92% &#8595;</td><td class="fm" style="font-size:10px;color:rgba(255,255,255,.5);">S-12</td></tr>
+      <tr><td class="kn">SHG Linkage Returns</td><td>60 hrs</td><td class="tsf">30 hrs</td><td class="tsk">12 hrs</td><td class="tsg">5 hrs</td><td class="tgd">92% &#8595;</td><td class="fm" style="font-size:10px;color:rgba(255,255,255,.5);">S-06</td></tr>
+      <tr style="background:rgba(232,117,10,.12);"><td style="font-weight:800;color:var(--gold-l);font-size:13px;">TOTAL / CYCLE</td><td style="font-weight:800;color:#fff;">780+ hrs</td><td class="tsf" style="font-weight:700;">~390 hrs</td><td class="tsk" style="font-weight:700;">~180 hrs</td><td class="tsg" style="font-weight:700;">~90 hrs</td><td class="tgd" style="font-weight:800;">88% &#8595;</td><td class="fm" style="font-size:10px;color:rgba(255,255,255,.5);">S-12</td></tr>
+      <tr><td style="color:rgba(255,255,255,.8);font-weight:600;">Cycle Duration</td><td>63 days</td><td class="tsf">45 days</td><td class="tsk">35 days</td><td class="tsg">24 days</td><td class="tgd">62% &#8595;</td><td></td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</section>
+
+<!-- SECTION 4 COST MODEL -->
+<section id="costs" class="sec">
+<div class="wrap">
+<div class="sh rv">
+  <div class="se">Section 4 &middot; NABARD Shared Services &mdash; Cost Model &amp; Savings Logic</div>
+  <h2 class="st">Shared Services Cost Model &mdash; <span class="ac">88% Average Reduction</span></h2>
+  <div class="sr"></div>
+  <p class="sd2">Source: S-19 (NABARD Shared Services Framework Document 2024). Shared infrastructure spreads costs across 351 DCCBs. Target: 130 million cooperative banking customers, &#8377;1,500 crore annual savings from Year 5.</p>
+</div>
+<div class="g2 rv">
+  <div class="cb"><h3>Standalone vs Shared Services &mdash; Annual Cost Per DCCB (&#8377; Lakhs)</h3><div class="csb">Source: S-19 &middot; NABARD Shared Services Framework Document 2024</div><div class="cwl"><canvas id="costChart"></canvas></div></div>
+  <div>
+    <div class="card" style="border-top:4px solid var(--saffron);margin-bottom:14px;">
+      <div style="text-align:center;padding:6px 0 12px;">
+        <div style="font-family:'Playfair Display',serif;font-size:56px;font-weight:700;color:var(--saffron);line-height:1;">88%</div>
+        <div style="font-size:13px;color:var(--text2);font-weight:600;">Average cost reduction via shared model (S-19)</div>
+        <div style="background:var(--sand);border-radius:8px;padding:11px;margin-top:10px;">
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid var(--border-l);"><span style="color:var(--text2);">Standalone TOTAL (per DCCB/year)</span><span style="font-weight:700;color:#B83030;">&#8377;84&ndash;185 lakhs</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid var(--border-l);"><span style="color:var(--text2);">Shared TOTAL (per DCCB/year)</span><span style="font-weight:700;color:var(--sage);">&#8377;8&ndash;21 lakhs</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;"><span style="color:var(--text2);">Aggregate Year 5 savings (351 DCCBs)</span><span style="font-weight:700;color:var(--ink);">&#8377;1,500 crore</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="border-top:4px solid var(--sage);">
+      <div class="fm" style="font-size:9.5px;color:var(--sage);letter-spacing:2px;margin-bottom:9px;">SCALE ADVANTAGE LOGIC</div>
+      <div style="font-size:12.5px;color:var(--text2);line-height:2.0;">
+        <div>&bull; 351 DCCBs share one CBS hosting infrastructure</div>
+        <div>&bull; WhatsApp Banking: one WABA account, 351 users</div>
+        <div>&bull; Cybersecurity SOC: 24&times;7 shared vs 351 individual contracts</div>
+        <div>&bull; Compliance engine: one code-base, 351 config instances</div>
+        <div>&bull; ML model: one training pipeline, 351 DCCB data feeds</div>
+        <div>&bull; Target: <strong>130 million</strong> cooperative banking customers by Year 5</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="tw rv mt32">
+  <table class="tb">
+    <thead><tr><th>Service</th><th>Standalone Annual (&#8377;L)</th><th>Shared Annual (&#8377;L)</th><th>Saving %</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td class="kn">CBS Hosting &amp; Maintenance</td><td class="trd">&#8377;8&ndash;15L</td><td class="tsg">&#8377;2&ndash;4L</td><td class="tgd">~73%</td><td>Per DCCB share of shared cloud infra</td></tr>
+      <tr><td class="kn">WhatsApp Banking API</td><td class="trd">&#8377;5&ndash;15L</td><td class="tsg">&#8377;0.5&ndash;1L</td><td class="tgd">~93%</td><td>WABA shared via NBFC aggregator</td></tr>
+      <tr><td class="kn">Cybersecurity SOC</td><td class="trd">&#8377;50&ndash;100L</td><td class="tsg">&#8377;3&ndash;8L</td><td class="tgd">~93%</td><td>24&times;7 shared SOC + empanelled vendor</td></tr>
+      <tr><td class="kn">AML / Compliance Engine</td><td class="trd">&#8377;10&ndash;30L</td><td class="tsg">&#8377;1&ndash;3L</td><td class="tgd">~90%</td><td>Rule-based + ML AML, NABARD OSS integration</td></tr>
+      <tr><td class="kn">Regulatory Reporting Engine</td><td class="trd">&#8377;5&ndash;12L</td><td class="tsg">&#8377;1&ndash;2L</td><td class="tgd">~83%</td><td>CRAR, SLR, CRR, NABARD NBS auto-reporting</td></tr>
+      <tr><td class="kn">MIS / BI Analytics Platform</td><td class="trd">&#8377;3&ndash;8L</td><td class="tsg">&#8377;0.5&ndash;1L</td><td class="tgd">~87%</td><td>Power BI / Tableau shared licences</td></tr>
+      <tr><td class="kn">VAPT (Annual Security Audit)</td><td class="trd">&#8377;1&ndash;3L</td><td class="tsg">&#8377;0.3&ndash;0.8L</td><td class="tgd">~75%</td><td>Empanelled VAPT vendors for sector</td></tr>
+      <tr style="background:rgba(232,117,10,.06);"><td style="font-weight:800;">TOTAL ANNUAL</td><td style="font-weight:700;color:#B83030;">&#8377;82&ndash;183L</td><td style="font-weight:700;color:var(--sage);">&#8377;8.3&ndash;19.8L</td><td class="tgd" style="font-weight:800;">~88%</td><td>Per DCCB excl. one-time setup costs</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="cg mt16 rv"><strong>NABARD TAP Notification (S-10) &mdash; April 2025:</strong> 96 weak RCBs covered from April 2025. Cooperative banking reform framework formalised. DCCBs under TAP receive priority onboarding and subsidised pricing for the first 24 months of shared services engagement.</div>
+</div>
+</section>
+
+<!-- SECTION 5 NPA/EWS -->
+<section id="npa" class="sec sw">
+<div class="wrap">
+<div class="sh rv">
+  <div class="se">Section 5 &middot; NPA Early Warning System &mdash; Signal Logic &amp; Recovery Data</div>
+  <h2 class="st">NPA EWS &mdash; <span class="ac">Signal Hierarchy, Recovery Rates &amp; ECL Logic</span></h2>
+  <div class="sr"></div>
+  <p class="sd2">Sources: S-06 (NABARD Microfinance Status 2022&ndash;23), S-08 (RBI Master Circular 2024), S-14 (NABARD Maharashtra AI Pilot 2024). EWS flags accounts 30+ days before the 90-DPD NPA threshold &mdash; raising recovery from 42% to 78%.</p>
+</div>
+<div class="g2 rv">
+  <div>
+    <div class="ew eg"><strong>&#127866; Green &mdash; Watch (0 DPD)</strong><p>All repayments on schedule. NDVI within seasonal average. NACH clearing normally. No insurance claim in crop zone. Action: nil. Recovery probability: &gt;95%.</p></div>
+    <div class="ew ea"><strong>&#127864; Amber &mdash; Alert (5&ndash;30 DPD)</strong><p>Repayment delayed 5&ndash;30 DPD. Account utilisation drop &gt;20%. NACH bounced once. NDVI drop &gt;15%. Action: RM call within 14 days, restructure offer. Recovery: <strong>78%</strong> (S-06)</p></div>
+    <div class="ew eo"><strong>&#127860; Orange &mdash; Risk (30&ndash;60 DPD)</strong><p>DPD 30&ndash;60. IMD drought flag active. NACH bounce &times;2 consecutive months. Cluster signal: 5+ PACS accounts defaulting. Action: Field officer visit + OTS offer. Recovery: 60&ndash;70%.</p></div>
+    <div class="ew er"><strong>&#128308; Red &mdash; NPA (DPD &ge;90)</strong><p>RBI 90-day DPD classification triggers. CBS auto-flags as NPA. Legal notice initiated. Provisioning: Sub-Standard 15%, Doubtful Yr1 25%, Yr2+ 40%, Loss 100%. Recovery without early action: <strong>42%</strong> (S-06).</p></div>
+  </div>
+  <div class="cb"><h3>Recovery Probability by EWS Stage of Intervention</h3><div class="csb">Source: S-06 (NABARD Microfinance Status 2022&ndash;23)</div><div class="cw"><canvas id="npaChart"></canvas></div></div>
+</div>
+<div class="tw rv mt32">
+  <table class="tb">
+    <thead><tr><th>EWS Element</th><th>DM-RFI Method</th><th>PD-RFI Method</th><th>PDC-RFI Method</th><th>NPA Reduction</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td class="kn">Data inputs</td><td class="tsg">Real-time CBS + NDVI + IMD weather + PMFBY claims</td><td class="tsk">Daily CBS feed + NACH bounce data</td><td class="tsf">Weekly CBS extract + manual review</td><td>&mdash;</td><td class="fm" style="font-size:10px;color:var(--text3);">S-14</td></tr>
+      <tr><td class="kn">Scoring model</td><td class="tsg">ML: XGBoost + Random Forest (PD probability)</td><td class="tsk">Rules-based IF/THEN on CBS data</td><td class="tsf">Excel: accounts &gt;7 DPD flagged</td><td>&mdash;</td><td class="fm" style="font-size:10px;color:var(--text3);">S-14</td></tr>
+      <tr><td class="kn">NPA formation reduction</td><td class="tsg">20&ndash;25%</td><td class="tsk">12&ndash;15%</td><td class="tsf">8&ndash;10%</td><td class="tgd">Up to 25%</td><td class="fm" style="font-size:10px;color:var(--text3);">S-14</td></tr>
+      <tr><td class="kn">Pre-NPA flag rate</td><td class="tsg">&gt;60% flagged 30+ days before NPA</td><td class="tsk">&gt;40% flagged</td><td class="tsf">&gt;20% flagged</td><td>&mdash;</td><td class="fm" style="font-size:10px;color:var(--text3);">S-14</td></tr>
+      <tr><td class="kn">Orange stage recovery</td><td class="tsg" colspan="3">78% across all RFI categories &mdash; depends on timely human intervention, not technology</td><td class="tgd">+36 pp vs Red</td><td class="fm" style="font-size:10px;color:var(--text3);">S-06</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="ck mt16 rv"><strong>90-Day DPD Rule (S-08):</strong> RBI Master Circular 2024 classifies any account overdue &gt;90 days as NPA. Provisioning: Sub-Standard 15%, Doubtful Year 1 = 25%, Year 2+ = 40%, Loss = 100%. NPAs also carry 150% RWA risk weight &mdash; making EWS the most powerful CRAR preservation mechanism available to DCCBs.</div>
+</div>
+</section>
+
+<!-- SECTION 6 GBPEM -->
+<section id="gbpem" class="sec sa">
+<div class="wrap">
+<div class="sh rv">
+  <div class="se">Section 6 &middot; GBPEM &mdash; Generic Bank Product Effectiveness Model</div>
+  <h2 class="st">GBPEM Scoring <span class="ac">Framework, Axis Logic &amp; Master Matrix</span></h2>
+  <div class="sr"></div>
+  <p class="sd2">5-axis evidence-based product prioritisation instrument. Each axis scored 1&ndash;5. Maximum = 25. Products &lt;15/25 should not be independently implemented. <strong>RAS (Rural Adaptability Score) updated:</strong> Score 5 = full 4G smartphone app; Score 1 = 2G USSD/AePS biometric only &mdash; higher score = greater technological richness.</p>
+</div>
+<div class="g2 rv">
+  <div class="cb"><h3>GBPEM Scores &mdash; Top 8 Priority Products</h3><div class="csb">Score &ge;20 = Priority 1 &middot; 15&ndash;19 = Priority 2 &middot; &lt;15 = Defer</div><div class="cwl"><canvas id="gbpemChart"></canvas></div></div>
+  <div>
+    <div class="tw" style="box-shadow:none;">
+      <table class="tb">
+        <thead><tr><th>Axis</th><th>Full Name</th><th>Score 5 = &hellip;</th><th>Score 1 = &hellip;</th></tr></thead>
+        <tbody>
+          <tr><td class="kn tsf">PMS</td><td>Product Maturity Score</td><td>100M+ deployment, documented ROI</td><td>Experimental, no benchmarks</td></tr>
+          <tr><td class="kn tsk">RAS</td><td>Rural Adaptability Score</td><td>Full 4G smartphone app, rich UX</td><td>2G USSD / AePS biometric only</td></tr>
+          <tr><td class="kn tgd">ICI</td><td>Implementation Complexity Index</td><td>90 days, under &#8377;25L, no IT team</td><td>18+ months, &#8377;5Cr+, RBI approvals</td></tr>
+          <tr><td class="kn tsg">FIQ</td><td>Financial Impact Quotient</td><td>50%+ cost reduction, &lt;18M break-even</td><td>No measurable financial benefit</td></tr>
+          <tr><td class="kn" style="color:#7060D0;">CVDS</td><td>Client Value Delivery Score</td><td>Solves acute rural pain point directly</td><td>Urban-biased; irrelevant to UP farmers</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cf mt16"><strong>RAS Scoring Direction (Updated):</strong> Higher RAS score now reflects richer digital capability (4G smartphone). Lower score (AePS/USSD) represents the minimum accessible floor for Segment C clients &mdash; critically important for inclusion but lower on the digital maturity aspirational scale.</div>
+  </div>
+</div>
+<div class="mt32 rv">
+  <h3 class="fs" style="font-size:18px;font-weight:700;color:var(--ink);margin-bottom:12px;">GBPEM Master Scoring Matrix &mdash; All 20 Products</h3>
+  <div class="tw">
+    <table class="tb">
+      <thead><tr><th>#</th><th>Product</th><th>PMS</th><th>RAS</th><th>ICI</th><th>FIQ</th><th>CVDS</th><th>/25</th><th>Priority</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="kn">&#128241; Mobile Banking App</td><td>5</td><td>3</td><td>3</td><td>4</td><td>4</td><td class="tgd">19</td><td class="tsg">HIGH</td></tr>
+        <tr><td>2</td><td class="kn">&#128421; Internet Banking (Staff)</td><td>5</td><td>1</td><td>4</td><td>3</td><td>2</td><td class="tsf">15</td><td class="tgd">MEDIUM</td></tr>
+        <tr><td>3</td><td class="kn">&#128179; UPI / AePS / BBPS</td><td>5</td><td>4</td><td>3</td><td>5</td><td>5</td><td class="tsg">22</td><td class="tsf" style="font-weight:700;">HIGHEST &#9733;</td></tr>
+        <tr><td>4</td><td class="kn">&#129370; Digital KYC / V-CIP</td><td>4</td><td>3</td><td>3</td><td>4</td><td>4</td><td class="tgd">18</td><td class="tsg">HIGH</td></tr>
+        <tr><td>5</td><td class="kn">&#127806; Digital KCC LOS</td><td>4</td><td>4</td><td>2</td><td>5</td><td>5</td><td class="tgd">20</td><td class="tsf" style="font-weight:700;">HIGHEST &#9733;</td></tr>
+        <tr><td>6</td><td class="kn">&#127975; ATM / Micro-ATM / AePS</td><td>5</td><td>5</td><td>4</td><td>4</td><td>5</td><td class="tsg">23</td><td class="tsf" style="font-weight:700;">HIGHEST &#9733;</td></tr>
+        <tr><td>7</td><td class="kn">&#128737; Insurance Distribution</td><td>5</td><td>4</td><td>4</td><td>4</td><td>5</td><td class="tsg">22</td><td class="tsf" style="font-weight:700;">HIGHEST &#9733;</td></tr>
+        <tr><td>8</td><td class="kn">&#128203; BBPS Bill Collection</td><td>5</td><td>5</td><td>4</td><td>4</td><td>5</td><td class="tsg">23</td><td class="tsf" style="font-weight:700;">HIGHEST &#9733;</td></tr>
+        <tr><td>9</td><td class="kn">&#128179; RuPay Card / mPOS</td><td>5</td><td>5</td><td>3</td><td>4</td><td>5</td><td class="tsg">22</td><td class="tsf" style="font-weight:700;">HIGHEST &#9733;</td></tr>
+        <tr><td>10</td><td class="kn">&#128172; WhatsApp / IVR / Chatbot</td><td>4</td><td>4</td><td>3</td><td>3</td><td>4</td><td class="tgd">18</td><td class="tsg">HIGH</td></tr>
+        <tr><td>11</td><td class="kn">&#127974; Core Banking Solution</td><td>5</td><td>5</td><td>1</td><td>5</td><td>5</td><td class="tsg">21</td><td class="tsf">MANDATORY</td></tr>
+        <tr><td>12</td><td class="kn">&#128202; MIS / Analytics Dashboard</td><td>5</td><td>4</td><td>3</td><td>4</td><td>3</td><td class="tgd">19</td><td class="tsg">HIGH</td></tr>
+        <tr><td>13</td><td class="kn">&#9878; Regulatory Compliance Engine</td><td>4</td><td>5</td><td>3</td><td>5</td><td>4</td><td class="tsg">21</td><td class="tsf" style="font-weight:700;">HIGHEST ROI</td></tr>
+        <tr><td>14</td><td class="kn">&#128680; NPA Early Warning System</td><td>4</td><td>4</td><td>3</td><td>5</td><td>4</td><td class="tgd">20</td><td class="tsf" style="font-weight:700;">HIGHEST &#9733;</td></tr>
+        <tr><td>15</td><td class="kn">&#128260; NACH / Seasonal eMandate</td><td>5</td><td>3</td><td>3</td><td>5</td><td>4</td><td class="tgd">20</td><td class="tsf" style="font-weight:700;">HIGHEST &#9733;</td></tr>
+        <tr><td>16</td><td class="kn">&#128101; HRMS / Payroll (SaaS)</td><td>5</td><td>5</td><td>5</td><td>3</td><td>2</td><td class="tgd">20</td><td class="tsg">HIGH</td></tr>
+        <tr><td>17</td><td class="kn">&#128274; Cybersecurity / SOC</td><td>5</td><td>4</td><td>2</td><td>4</td><td>3</td><td class="tgd">18</td><td class="tsf">MANDATORY</td></tr>
+        <tr><td>18</td><td class="kn">&#128193; Document Management (DMS)</td><td>4</td><td>5</td><td>4</td><td>4</td><td>3</td><td class="tgd">20</td><td class="tsg">HIGH</td></tr>
+        <tr><td>19</td><td class="kn">&#128185; Treasury / SLR Tracking</td><td>5</td><td>5</td><td>4</td><td>4</td><td>3</td><td class="tsg">21</td><td class="tsg">HIGH</td></tr>
+        <tr><td>20</td><td class="kn">&#128737; Fraud Detection / AML</td><td>4</td><td>4</td><td>2</td><td>4</td><td>3</td><td class="tsf">17</td><td class="tsg">HIGH</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- SECTION 7 MVDS -->
+<section id="mvds" class="sec sd">
+<div class="wrap">
+<div class="sh rv">
+  <div class="se">Section 7 &middot; Minimum Viable Digital Stack by RFI Category</div>
+  <h2 class="st" style="color:#fff;">MVDS &mdash; <span style="color:var(--saffron-l);">Component Count, Cost &amp; Rationale</span></h2>
+  <div class="sr"></div>
+  <p class="sd2">The MVDS defines the exact minimum set of digital components each RFI category must deploy to achieve measurable outcomes. No DCCB is required to leap from paper to AI &mdash; the stack is sequenced and achievable within budget.</p>
+</div>
+<div class="g3 rv">
+  <div class="card" style="border-top:4px solid var(--sage-l);">
+    <div class="fm" style="font-size:9px;color:var(--sage-l);letter-spacing:2px;margin-bottom:9px;">DM-RFI &middot; 20 COMPONENTS</div>
+    <div style="font-size:11.5px;color:var(--text2);line-height:1.85;">Real-time CBS + API layer &middot; White-label mobile app (Hindi) &middot; UPI + RuPay card &middot; Aadhaar eKYC (all branches) &middot; V-CIP remote KYC &middot; Digital KCC LOS (AI) &middot; NACH seasonal mandate &middot; BBPS BOU registered &middot; Micro-ATM BC every PACS &middot; NPA EWS ML-based &middot; Compliance engine (full auto) &middot; MIS/BI Tier 3 &middot; HRMS cloud &middot; DMS enterprise &middot; SOC cybersecurity &middot; PMFBY auto-integration &middot; Credit bureau API &middot; WhatsApp + IVR &middot; Satellite NDVI API</div>
+    <div style="margin-top:12px;background:var(--sand);border-radius:8px;padding:10px;">
+      <div style="font-size:11px;font-weight:700;color:var(--ink);">MVDS Total Cost</div>
+      <div style="font-size:14px;font-weight:700;color:var(--sage);">&#8377;1.5&ndash;3.5 Cr one-time</div>
+      <div style="font-size:11px;color:var(--text3);">+ &#8377;30&ndash;60L annual operating</div>
+    </div>
+  </div>
+  <div class="card" style="border-top:4px solid #7060D0;">
+    <div class="fm" style="font-size:9px;color:#7060D0;letter-spacing:2px;margin-bottom:9px;">PD-RFI &middot; 12 COMPONENTS</div>
+    <div style="font-size:11.5px;color:var(--text2);line-height:1.85;">Full CBS (all branches, real-time) &middot; Aadhaar eKYC (all branches) &middot; UPI QR + AePS &middot; NACH seasonal mandate &middot; RuPay debit card &middot; Semi-automated compliance engine &middot; MIS Power BI dashboard &middot; BC micro-ATM (block level) &middot; BBPS sub-agent model &middot; Digital KCC hybrid form &middot; HRMS (GreytHR/Zoho) &middot; Endpoint security + OTP</div>
+    <div style="margin-top:12px;background:var(--sand);border-radius:8px;padding:10px;">
+      <div style="font-size:11px;font-weight:700;color:var(--ink);">MVDS Total Cost</div>
+      <div style="font-size:14px;font-weight:700;color:#4A2090;">&#8377;35&ndash;75L one-time</div>
+      <div style="font-size:11px;color:var(--text3);">+ &#8377;10&ndash;20L annual operating</div>
+    </div>
+  </div>
+  <div class="card" style="border-top:4px solid var(--saffron);">
+    <div class="fm" style="font-size:9px;color:var(--saffron);letter-spacing:2px;margin-bottom:9px;">PDC-RFI &middot; 6 COMPONENTS</div>
+    <div style="font-size:11.5px;color:var(--text2);line-height:1.85;">CBS stabilisation (100% branches) &middot; Aadhaar eKYC at HQ branch (minimum start) &middot; AePS via BC (district + 1&ndash;2 blocks) &middot; USSD *99# for balance inquiry &middot; CBS extract &rarr; Excel compliance template (45-day cycle) &middot; Endpoint security + OTP authentication</div>
+    <div style="margin-top:12px;background:var(--sand);border-radius:8px;padding:10px;">
+      <div style="font-size:11px;font-weight:700;color:var(--ink);">MVDS Total Cost</div>
+      <div style="font-size:14px;font-weight:700;color:var(--saffron);">&#8377;10&ndash;25L one-time</div>
+      <div style="font-size:11px;color:var(--text3);">+ &#8377;3&ndash;5L annual operating</div>
+    </div>
+  </div>
+</div>
+<div class="cbd rv mt40"><h3>MVDS Implementation Cost Comparison (&#8377; Lakhs, One-Time)</h3><div class="csb">PDC-RFI: foundation only &middot; PD-RFI: full digital ops &middot; DM-RFI: AI + full stack</div><div class="cw"><canvas id="mvdsChart"></canvas></div></div>
+</div>
+</section>
+
+<!-- SECTION 8 ALL SOURCES -->
+<section id="allsrc" class="sec">
+<div class="wrap">
+<div class="sh rv tc">
+  <div class="se">Section 8 &middot; Complete Source Directory</div>
+  <h2 class="st tc">All <span class="ac">20 Primary Sources</span></h2>
+  <div class="sr" style="margin:0 auto 14px;"></div>
+  <p class="sd2" style="margin:0 auto;">Every statistic and formula in the DCCB UP Framework cites one or more of these 20 sources, cited by code (S-01 through S-20) throughout the main presentation.</p>
+</div>
+<div class="sg2 rv mt32">
+  <div id="S-01" class="sc2"><div class="sct"><span class="sn">S-01</span><span class="stt">NABARD Annual Report 2024&ndash;25</span><span class="sy">2025</span></div><div class="sdt">National Bank for Agriculture and Rural Development. Cooperative Credit Structure, DCCB performance data (351 DCCBs total FY 2024&ndash;25), PACS statistics, rural credit flow, &#8377;42,000+ crore infusion FY24&ndash;25, cooperative banking reform mandate.</div><div class="stg"><span class="sg">DCCB Count 351</span><span class="sf">&#8377;42K Cr Infusion</span><span class="gd">Credit Flow</span></div></div>
+  <div id="S-02" class="sc2"><div class="sct"><span class="sn">S-02</span><span class="stt">RBI Report on Trend and Progress of Banking in India 2023&ndash;24</span><span class="sy">2024</span></div><div class="sdt">Reserve Bank of India. Cooperative bank CBS mandate compliance tracking, digital banking penetration, NPA data, V-CIP (video KYC) regulatory framework (2020 onward).</div><div class="stg"><span class="sf">CBS Compliance</span><span class="sk">Digital Banking</span><span class="gd">NPA Data</span></div></div>
+  <div id="S-03" class="sc2"><div class="sct"><span class="sn">S-03</span><span class="stt">NPCI Annual Report 2023&ndash;24</span><span class="sy">2024</span></div><div class="sdt">National Payments Corporation of India. UPI: 10.17 billion transactions/month peak. AePS network data, NACH volumes, BBPS commission &#8377;4/txn. BC agent monthly income: &#8377;10,950&ndash;18,450 (AePS + BBPS + account opening + KCC assistance). USSD *99# data.</div><div class="stg"><span class="sk">UPI 10.17Bn/mo</span><span class="sg">AePS/BC</span><span class="sf">BBPS &#8377;4/txn</span></div></div>
+  <div id="S-04" class="sc2"><div class="sct"><span class="sn">S-04</span><span class="stt">SBI Annual Report 2024&ndash;25 (FY25)</span><span class="sy">2025</span></div><div class="sdt">State Bank of India. YONO: 8.77 crore registered users, 64% SB accounts opened via YONO FY25. YONO development cost: &#8377;4,000 crore. IT spend &#8377;10,525 crore. Benchmark: what cooperative banks must NOT replicate independently.</div><div class="stg"><span class="sk">YONO Benchmark</span><span class="gd">&#8377;4,000Cr Build Cost</span></div></div>
+  <div id="S-05" class="sc2"><div class="sct"><span class="sn">S-05</span><span class="stt">Ministry of Finance &ndash; PM Jan Dhan Yojana Dashboard</span><span class="sy">2025</span></div><div class="sdt">Government of India. 53.13 crore beneficiary accounts as of March 2025. RuPay debit card issuance data. Zero-balance account statistics. Basis for UP DCCB client Segment A/B/C framework.</div><div class="stg"><span class="sg">53.13Cr Accounts</span><span class="sf">RuPay Cards</span><span class="sk">Client Segments</span></div></div>
+  <div id="S-06" class="sc2"><div class="sct"><span class="sn">S-06</span><span class="stt">NABARD &ndash; Status of Microfinance in India 2022&ndash;23</span><span class="sy">2023</span></div><div class="sdt">NPA recovery rate data: Orange-stage 78% vs Red/NPA-stage 42% (&ndash;36 pp). SHG-Bank Linkage Programme statistics. Cooperative credit delivery benchmarks. KCC NPA rates 8&ndash;12% manual baseline. Core source for EWS business case.</div><div class="stg"><span class="gd">78% vs 42% Recovery</span><span class="sg">SHG Data</span><span class="sf">EWS Basis</span></div></div>
+  <div id="S-07" class="sc2"><div class="sct"><span class="sn">S-07</span><span class="stt">NABARD PACS Computerisation Programme Guidelines</span><span class="sy">2023</span></div><div class="sdt">Ministry of Cooperation. National ERP rollout for 63,000+ PACS. Integration architecture with DCCBs. Cost structure for PACS digitisation. Bhulekh API (state land records) integration specification.</div><div class="stg"><span class="sg">63K PACS ERP</span><span class="sk">Bhulekh API</span><span class="gd">PACS-CBS Linkage</span></div></div>
+  <div id="S-08" class="sc2"><div class="sct"><span class="sn">S-08</span><span class="stt">RBI Master Circular &ndash; Cooperative Banks Prudential Norms 2024</span><span class="sy">2024</span></div><div class="sdt">CRAR minimum 9%. SLR 18.00% of NDTL (fortnightly). CRR 4.5%. NPA: 90 DPD. Risk weights: G-Secs 0%, KCC loans 75%, NPAs 150%. IFRS 9 ECL = PD &times; LGD &times; EAD. NPA provisioning norms. Core compliance framework source.</div><div class="stg"><span class="sf">CRAR 9%</span><span class="sk">SLR 18%</span><span class="gd">90-DPD Rule</span><span class="sg">ECL Formula</span></div></div>
+  <div id="S-09" class="sc2"><div class="sct"><span class="sn">S-09</span><span class="stt">ICICI Bank Annual Report 2024&ndash;25</span><span class="sy">2025</span></div><div class="sdt">Digital Banking segment revenue &#8377;40,264 crore FY25. iMobile Pay: 400+ services. Technology spend 10.7% of operating expenses. Benchmark for large-bank digital cost structure vs DCCB reality.</div><div class="stg"><span class="gd">Large-Bank Benchmark</span><span class="sk">10.7% Tech Spend</span></div></div>
+  <div id="S-10" class="sc2"><div class="sct"><span class="sn">S-10</span><span class="stt">NABARD TAP (Turn Around Plan) Notification 2025</span><span class="sy">2025</span></div><div class="sdt">Coverage of 96 weak RCBs from April 2025. Cooperative banking reform framework formalised. Shared Services mandate and service scope. Priority onboarding for TAP-covered DCCBs with subsidised pricing for 24 months.</div><div class="stg"><span class="sf">TAP 96 RCBs</span><span class="sg">April 2025</span></div></div>
+  <div id="S-11" class="sc2"><div class="sct"><span class="sn">S-11</span><span class="stt">RBI Press Release &ndash; CBS Compliance, Cooperative Banks 2025</span><span class="sy">2025</span></div><div class="sdt">All cooperative banks (except 1 UCB in West Bengal) on CBS as of March 2025. CBS mandate achieved (99.9%). Key finding: CBS &ne; digitalisation &mdash; field diagnostics confirm critical operational gap.</div><div class="stg"><span class="sg">99.9% CBS</span><span class="sk">March 2025</span></div></div>
+  <div id="S-12" class="sc2"><div class="sct"><span class="sn">S-12</span><span class="stt">NABARD &ndash; Diagnostic Study of Digital Readiness in RCBs (UP Field)</span><span class="sy">2024</span></div><div class="sdt">UP DCCB field visits 2024. All operational baselines: 780+ person-hours per OSS cycle; 63-day compliance cycle; CRAR computation ~40 hours; KCC TAT 14&ndash;42 days; cost per application &#8377;1,200.</div><div class="stg"><span class="sf">780+ hrs Baseline</span><span class="gd">63-day Cycle</span><span class="sk">Field Data 2024</span></div></div>
+  <div id="S-13" class="sc2"><div class="sct"><span class="sn">S-13</span><span class="stt">RBI &ndash; ATM Network Data, April 2025</span><span class="sy">2025</span></div><div class="sdt">Total ATMs: 1,31,265 onsite + 82,526 offsite = ~2.13 lakh total. India ATM count: ~1.46 million (incl. white-label). Micro-ATM device cost: &#8377;8,000&ndash;15,000. BC agent income from ATM-facilitated transactions.</div><div class="stg"><span class="sg">2.13L ATMs</span><span class="sf">Micro-ATM &#8377;8&ndash;15K</span></div></div>
+  <div id="S-14" class="sc2"><div class="sct"><span class="sn">S-14</span><span class="stt">NABARD &ndash; Maharashtra AI Credit Scoring Pilot Results 2024</span><span class="sy">2024</span></div><div class="sdt">+18% credit inclusion vs manual. Credit accuracy: manual 67% &rarr; AI 87% (+20 pp). NPA formation reduced 20&ndash;25% with ML EWS. AI model: XGBoost + Random Forest on CBS + NDVI + weather. Core benchmark for all DM-RFI projections.</div><div class="stg"><span class="sg">87% AI Accuracy</span><span class="sf">+18% Inclusion</span><span class="gd">25% NPA Reduction</span></div></div>
+  <div id="S-15" class="sc2"><div class="sct"><span class="sn">S-15</span><span class="stt">NABARD &ndash; Telangana and Odisha PACS Digitisation Impact Study 2023</span><span class="sy">2023</span></div><div class="sdt">Deposit growth at fully digitised PACS: +15.4%. Digital KCC TAT: 14&ndash;42 days &rarr; 2&ndash;5 days (60&ndash;70% reduction). Cost per application: &#8377;1,200 &rarr; &#8377;250 at full digital. Foundation for all KCC LOS calculations.</div><div class="stg"><span class="sg">+15.4% Deposits</span><span class="sf">TAT 60&ndash;70% &#8595;</span><span class="gd">PACS Impact Data</span></div></div>
+  <div id="S-16" class="sc2"><div class="sct"><span class="sn">S-16</span><span class="stt">HDFC Bank Annual Report 2024&ndash;25</span><span class="sy">2025</span></div><div class="sdt">9,092 branches; 20,993 ATMs. LITE mobile banking for low-bandwidth users. Technology described as core investment area. Benchmark for rural-optimised banking technology at cooperative bank scale.</div><div class="stg"><span class="gd">Large-Bank Benchmark</span><span class="sk">LITE Banking</span></div></div>
+  <div id="S-17" class="sc2"><div class="sct"><span class="sn">S-17</span><span class="stt">RBI &ndash; Cybersecurity Framework for Cooperative Banks 2023&ndash;24</span><span class="sy">2024</span></div><div class="sdt">Mandatory VAPT (annual). Endpoint protection requirements. OTP-based customer authentication. AES-256 encryption standard. SOC connectivity guidelines. Individual DCCB VAPT cost: &#8377;1&ndash;3 lakhs/year. Shared SOC: &#8377;3&ndash;8 lakhs/year.</div><div class="stg"><span class="sf">VAPT Mandatory</span><span class="sk">AES-256</span><span class="gd">Cybersec Framework</span></div></div>
+  <div id="S-18" class="sc2"><div class="sct"><span class="sn">S-18</span><span class="stt">Ministry of Finance &ndash; PMFBY Annual Report 2023&ndash;24</span><span class="sy">2024</span></div><div class="sdt">Government premium subsidy 85%+. Farmer premium: 1.5&ndash;2% of sum insured (kharif), 1.5% (rabi). Current KCC enrolment &lt;40% at manual baseline. DM-RFI auto-enrolment target: 98%+. AIDE portal for digital PMFBY integration.</div><div class="stg"><span class="sg">PMFBY Rates</span><span class="sf">85% Subsidy</span><span class="gd">Auto-Enrolment 98%+</span></div></div>
+  <div id="S-19" class="sc2"><div class="sct"><span class="sn">S-19</span><span class="stt">NABARD &ndash; Shared Services Platform Framework Document 2024</span><span class="sy">2024</span></div><div class="sdt">Shared services scope across 351 DCCBs. Target: 130 million cooperative banking customers. &#8377;1,500 crore annual savings from Year 5. 88% average cost reduction vs standalone. Service catalogue with pricing per DCCB. ADEI scoring framework.</div><div class="stg"><span class="sf">88% Cost Reduction</span><span class="sg">130M Customers</span><span class="gd">&#8377;1,500Cr Savings</span></div></div>
+  <div id="S-20" class="sc2"><div class="sct"><span class="sn">S-20</span><span class="stt">UP State Cooperative Bank &ndash; Annual Report &amp; District Data 2023&ndash;24</span><span class="sy">2024</span></div><div class="sdt">50 DCCBs in Uttar Pradesh confirmed. District-wise PACS data. Credit disbursement by region. NPA rates by district. Staff capacity data. Basis for 50-DCCB count, UP field distribution and regional zone mapping.</div><div class="stg"><span class="sg">50 UP DCCBs</span><span class="sf">District Data</span><span class="gd">NPA by Region</span></div></div>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="wrap fw">
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px;margin-bottom:22px;position:relative;z-index:2;">
+  <div>
+    <div style="font-family:'Playfair Display',serif;font-size:18px;color:#fff;margin-bottom:7px;">DCCB UP Data Repository</div>
+    <p style="font-size:12.5px;color:rgba(255,255,255,.36);margin-bottom:12px;line-height:1.6;">Complete evidence base for the NABARD Advisory Framework. All 20 sources cited with data extracts, formulae and calculated projections. Use alongside the main DCCB UP Framework presentation.</p>
+    <div style="display:flex;gap:7px;flex-wrap:wrap;">
+      <span style="font-family:'DM Mono',monospace;font-size:8px;border:1px solid rgba(232,117,10,.28);color:var(--saffron-l);padding:3px 9px;border-radius:12px;">NABARD FY2025</span>
+      <span style="font-family:'DM Mono',monospace;font-size:8px;border:1px solid rgba(232,117,10,.28);color:var(--saffron-l);padding:3px 9px;border-radius:12px;">IFRS 9 Aligned</span>
+      <span style="font-family:'DM Mono',monospace;font-size:8px;border:1px solid rgba(232,117,10,.28);color:var(--saffron-l);padding:3px 9px;border-radius:12px;">20 Primary Sources</span>
+      <span style="font-family:'DM Mono',monospace;font-size:8px;border:1px solid rgba(232,117,10,.28);color:var(--saffron-l);padding:3px 9px;border-radius:12px;">Field Validated</span>
+    </div>
+  </div>
+  <div>
+    <div style="font-size:10px;font-weight:700;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:11px;">Data Sections</div>
+    <ul style="list-style:none;">
+      <li style="margin-bottom:7px;"><a href="#landscape" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:12.5px;">Landscape &amp; Context</a></li>
+      <li style="margin-bottom:7px;"><a href="#kcc" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:12.5px;">KCC LOS Data</a></li>
+      <li style="margin-bottom:7px;"><a href="#compliance" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:12.5px;">Compliance Formulae</a></li>
+      <li style="margin-bottom:7px;"><a href="#costs" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:12.5px;">Cost Model</a></li>
+      <li style="margin-bottom:7px;"><a href="#npa" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:12.5px;">NPA/EWS Logic</a></li>
+    </ul>
+  </div>
+  <div>
+    <div style="font-size:10px;font-weight:700;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:11px;">Reference</div>
+    <ul style="list-style:none;">
+      <li style="margin-bottom:7px;"><a href="#gbpem" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:12.5px;">GBPEM Matrix</a></li>
+      <li style="margin-bottom:7px;"><a href="#mvds" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:12.5px;">MVDS by Category</a></li>
+      <li style="margin-bottom:7px;"><a href="#allsrc" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:12.5px;">All 20 Sources</a></li>
+      <li style="margin-bottom:7px;"><a href="index.html" style="color:var(--saffron-l);text-decoration:none;font-size:12.5px;font-weight:600;">&#8592; Main Presentation</a></li>
+    </ul>
+  </div>
+</div>
+<div class="fbt">
+  <div class="fcp">&copy; 2025 NABARD Digital Transformation Advisory &middot; Data from NABARD Annual Reports, RBI circulars, NPCI data and UP field diagnostics &middot; FY2025</div>
+  <div class="fhi">&#2360;&#2361;&#2325;&#2366;&#2352; &#2360;&#2375; &#2360;&#2350;&#2371;&#2342;&#2381;&#2343;&#2367;</div>
+</div>
+</div>
+</footer>
+
+<script>
+'use strict';
+const P=document.getElementById('prog');
+window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-window.innerHeight;if(P)P.style.width=(h>0?s/h*100:0)+'%';},{passive:true});
+const rvO=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');rvO.unobserve(x.target);}});},{threshold:0.05,rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.rv').forEach(el=>rvO.observe(el));
+const nls=document.querySelectorAll('#nav a.nl');
+const scts=Array.from(document.querySelectorAll('section[id]'));
+function uNav(){const y=window.scrollY+80;let c='';scts.forEach(s=>{if(s.offsetTop<=y)c=s.id;});nls.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c));}
+window.addEventListener('scroll',uNav,{passive:true});
+Chart.defaults.font.family="'DM Sans',sans-serif";
+const SF='#E8750A',GL='#F0B830',SG='#40916C',SK='#42A5F5',RD='#C03030',INK='#0D1B2A';
+const GC='rgba(13,27,42,.09)',GD='rgba(255,255,255,.13)';
+new Chart(document.getElementById('rfiChart'),{type:'doughnut',data:{labels:['DM-RFI (~4 DCCBs)','PD-RFI (~32 DCCBs)','PDC-RFI (~14 DCCBs)'],datasets:[{data:[4,32,14],backgroundColor:[SG,SK,SF],borderWidth:0,hoverOffset:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:INK,font:{size:11},padding:14}},tooltip:{callbacks:{label:c=>' '+c.label+': '+c.parsed+' DCCBs'}}},cutout:'58%'}});
+new Chart(document.getElementById('tatChart'),{type:'bar',data:{labels:['Manual\nBaseline','PDC-RFI','PD-RFI','DM-RFI\n(AI)'],datasets:[{label:'TAT (days — midpoint)',data:[28,12,6,2.5],backgroundColor:[RD,SF,SK,SG],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' ~'+c.parsed+'d TAT'}}},scales:{y:{grid:{color:GC},ticks:{color:'#7A8FA6'},title:{display:true,text:'Days (approx)',color:'#7A8FA6',font:{size:10}}},x:{grid:{display:false},ticks:{color:'#7A8FA6',font:{size:10}}}}}});
+new Chart(document.getElementById('accChart'),{type:'bar',data:{labels:['Manual','PDC-RFI','PD-RFI','DM-RFI'],datasets:[{label:'Credit Accuracy (%)',data:[67,70,78,87],backgroundColor:[RD+'88',SF+'88',SK+'88',SG+'88'],borderRadius:5,borderSkipped:false,yAxisID:'y'},{label:'Cost/App (INR)',data:[1200,750,500,250],type:'line',borderColor:GL,backgroundColor:GL+'22',pointBackgroundColor:GL,tension:.35,yAxisID:'y2'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:INK,font:{size:10},padding:10}}},scales:{y:{grid:{color:GC},ticks:{color:'#7A8FA6'},min:60,max:95,title:{display:true,text:'Accuracy (%)',color:'#7A8FA6',font:{size:10}}},y2:{position:'right',grid:{display:false},ticks:{color:GL+'CC',callback:v=>'INR'+v},title:{display:true,text:'Cost/App',color:GL+'CC',font:{size:10}}},x:{grid:{display:false},ticks:{color:'#7A8FA6',font:{size:10}}}}}});
+new Chart(document.getElementById('compChart'),{type:'bar',data:{labels:['CRAR','SLR','CRR','NBS Ret.','KCC Ret.','Recovery','SHG'],datasets:[{label:'Manual (hrs)',data:[40,10,5,200,80,120,60],backgroundColor:RD+'99',borderRadius:4,borderSkipped:false},{label:'PD-RFI (hrs)',data:[8,1,0.5,50,15,25,12],backgroundColor:SK+'99',borderRadius:4,borderSkipped:false},{label:'DM-RFI (hrs)',data:[2,0,0,20,5,10,5],backgroundColor:SG+'99',borderRadius:4,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'rgba(255,255,255,.7)',font:{size:10},padding:10}}},scales:{y:{grid:{color:GD},ticks:{color:'rgba(255,255,255,.5)'},title:{display:true,text:'Hours',color:'rgba(255,255,255,.5)',font:{size:10}}},x:{grid:{display:false},ticks:{color:'rgba(255,255,255,.5)',font:{size:9}}}}}});
+new Chart(document.getElementById('costChart'),{type:'bar',data:{labels:['CBS Hosting','WhatsApp API','Cyber SOC','AML Engine','Reg. Reporting','MIS/BI','VAPT'],datasets:[{label:'Standalone (INR L max)',data:[15,15,100,30,12,8,3],backgroundColor:RD+'CC',borderRadius:5,borderSkipped:false},{label:'Shared Model (INR L max)',data:[4,1,8,3,2,1,0.8],backgroundColor:SG+'CC',borderRadius:5,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{position:'bottom',labels:{color:INK,font:{size:10},padding:10}}},scales:{x:{grid:{color:GC},ticks:{color:'#7A8FA6',callback:v=>'INR'+v+'L'},title:{display:true,text:'Annual Cost (INR Lakhs)',color:'#7A8FA6',font:{size:10}}},y:{grid:{display:false},ticks:{color:'#7A8FA6',font:{size:10}}}}}});
+new Chart(document.getElementById('npaChart'),{type:'bar',data:{labels:['Green\n(0 DPD)','Amber\n(5-30 DPD)','Orange\n(30-60 DPD)','Red / NPA\n(90+ DPD)'],datasets:[{label:'Recovery Probability (%)',data:[95,78,65,42],backgroundColor:[SG,GL,SF,RD],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.parsed+'% recovery probability'}}},scales:{y:{grid:{color:GC},ticks:{color:'#7A8FA6',callback:v=>v+'%'},min:0,max:100},x:{grid:{display:false},ticks:{color:'#7A8FA6',font:{size:9}}}}}});
+new Chart(document.getElementById('gbpemChart'),{type:'bar',data:{labels:['ATM/AePS\n23','BBPS\n23','UPI/AePS\n22','RuPay\n22','Insurance\n22','Compl.Eng\n21','KCC LOS\n20','NPA EWS\n20'],datasets:[{label:'GBPEM Score /25',data:[23,23,22,22,22,21,20,20],backgroundColor:[SG,SG,SG+'CC',SG+'CC',SG+'CC',SF,GL,GL],borderRadius:5,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' Score: '+c.parsed+'/25'}}},scales:{y:{grid:{color:GC},ticks:{color:'#7A8FA6'},min:16,max:25,title:{display:true,text:'Score /25',color:'#7A8FA6',font:{size:10}}},x:{grid:{display:false},ticks:{color:'#7A8FA6',font:{size:9}}}}}});
+new Chart(document.getElementById('mvdsChart'),{type:'bar',data:{labels:['PDC-RFI\n(6 components)','PD-RFI\n(12 components)','DM-RFI\n(20 components)'],datasets:[{label:'One-Time Cost Min (INR L)',data:[10,35,150],backgroundColor:SF+'99',borderRadius:5,borderSkipped:false},{label:'One-Time Cost Max (INR L)',data:[25,75,350],backgroundColor:SG+'99',borderRadius:5,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'rgba(255,255,255,.7)',font:{size:10},padding:10}}},scales:{y:{grid:{color:GD},ticks:{color:'rgba(255,255,255,.5)',callback:v=>'INR'+v+'L'},title:{display:true,text:'Cost (INR Lakhs)',color:'rgba(255,255,255,.5)',font:{size:10}}},x:{grid:{display:false},ticks:{color:'rgba(255,255,255,.5)',font:{size:10}}}}}});
+</script>
+</body>
+</html>

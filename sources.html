@@ -151,6 +151,67 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
 .fcp{font-size:11px;color:rgba(255,255,255,.2);}
 .fhi{font-family:'Playfair Display',serif;font-size:16px;color:var(--saffron-l);font-style:italic;}
 @media(max-width:900px){.g2,.g3{grid-template-columns:1fr;}.dc{grid-template-columns:1fr 1fr;}.sg2{grid-template-columns:1fr;}.cstr{grid-template-columns:1fr 1fr;}.wrap{padding:0 18px;}.hin{padding:38px 18px;}}
+
+/* ═══ SOURCES.HTML ENHANCEMENTS ═══ */
+body{background:linear-gradient(160deg,#F8F2E4 0%,#F2EAD3 50%,#EDE3CE 100%);}
+.sec{position:relative;overflow:hidden;}
+.sec.sa{background:linear-gradient(145deg,#FDF0DC 0%,#F5E4C0 30%,#EDD9A8 60%,#F2E1BC 100%);}
+.sec.sd{background:linear-gradient(135deg,#0A1220 0%,#0D1B3E 40%,#1A2A50 70%,#0A1830 100%);}
+.sec.sw{background:linear-gradient(135deg,#FDF0DC,#F5E8C8);}
+.src-open-link{
+  display:inline-flex;align-items:center;gap:5px;margin-top:9px;
+  padding:5px 14px;border-radius:20px;
+  background:linear-gradient(135deg,rgba(232,117,10,.15),rgba(201,146,10,.1));
+  border:1px solid rgba(232,117,10,.3);
+  color:var(--saffron);font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;
+  text-decoration:none;transition:all .2s;
+}
+.src-open-link:hover{
+  background:linear-gradient(135deg,rgba(232,117,10,.3),rgba(201,146,10,.22));
+  transform:translateY(-2px);box-shadow:0 4px 14px rgba(232,117,10,.22);
+}
+.sc2{scroll-margin-top:80px;}
+.sc2:hover{border-left-color:var(--gold);}
+/* Ensure card text readable */
+.sdt{color:#3D4F6A;}
+.stt{color:#0D1B2A;}
+/* Animated underline on source headings */
+.stt{position:relative;display:inline-block;}
+/* flow strip */
+.flow-stripe{
+  height:2px;
+  background:linear-gradient(90deg,transparent,rgba(232,117,10,.4),rgba(201,146,10,.5),rgba(45,106,79,.35),transparent);
+  background-size:200% 100%;
+  animation:stripeFlow 6s linear infinite;
+}
+@keyframes stripeFlow{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+/* Canvas bg */
+#mech-canvas-src{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.18;
+}
+.video-panel{background:linear-gradient(145deg,rgba(13,27,42,.9),rgba(21,52,85,.95));border:1px solid rgba(232,117,10,.18);border-radius:24px;padding:30px 28px 22px;box-shadow:0 24px 60px rgba(13,27,42,.2);margin-bottom:40px;position:relative;overflow:hidden;}
+.video-panel::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at top right,rgba(232,117,10,.18),transparent 32%),radial-gradient(circle at bottom left,rgba(75,163,214,.12),transparent 24%);pointer-events:none;}
+.video-panel .vp-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(232,117,10,.85);margin-bottom:10px;display:inline-block;}
+.video-panel .vp-title{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,38px);font-weight:800;color:#fff;line-height:1.08;max-width:760px;margin-bottom:12px;}
+.video-panel .vp-copy{font-size:13px;color:rgba(255,255,255,.72);max-width:760px;line-height:1.8;margin-bottom:26px;}
+.video-slider-wrapper{position:relative;}
+.video-slider{display:flex;gap:18px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
+.video-slider::-webkit-scrollbar{height:8px;}
+.video-slider::-webkit-scrollbar-thumb{background:rgba(232,117,10,.45);border-radius:99px;}
+.video-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(13,27,42,.88);color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s,background .2s,box-shadow .2s;z-index:2;}
+.video-nav:hover{transform:translateY(-50%) scale(1.05);background:rgba(232,117,10,.95);box-shadow:0 14px 24px rgba(232,117,10,.25);}
+.video-nav-left{left:-23px;}
+.video-nav-right{right:-23px;}
+.video-card{min-width:100%;flex:0 0 100%;max-width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:22px;overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,.18);scroll-snap-align:start;transition:transform .25s;}
+.video-card:hover{transform:translateY(-2px);}
+.video-card video{width:100%;display:block;height:auto;background:#000;}
+.video-card .vc-meta{padding:16px 18px 20px;}
+.video-card .vc-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.4px;text-transform:uppercase;color:var(--saffron);margin-bottom:10px;}
+.video-card .vc-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:8px;}
+.video-card .vc-desc{font-size:12.8px;color:rgba(255,255,255,.72);line-height:1.7;}
+.video-card .vc-context{font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:10px;}
+.video-card .vc-note{margin-top:14px;font-size:10.5px;color:rgba(255,255,255,.55);font-family:'DM Mono',monospace;letter-spacing:.8px;}
 </style>
 </head>
 <body>
@@ -179,6 +240,47 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
       <div class="rst"><span class="rsn">50</span><span class="rsl">DCCBs Covered (UP)</span></div>
       <div class="rst"><span class="rsn">351</span><span class="rsl">DCCBs India FY25</span></div>
       <div class="rst"><span class="rsn">FY2025</span><span class="rsl">Data Vintage</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="video-showcase" class="sec sw">
+  <div class="wrap">
+    <div class="video-panel rv">
+      <div class="vp-label">Evidence Flow</div>
+      <div class="vp-title">Video Dossiers for DCCB Digital Transformation</div>
+      <div class="vp-copy">Two immersive source videos preview the data journey, field diagnostics and system design vision behind the DCCB UP advisory framework. Replace the placeholders below with your own video files when ready.</div>
+      <div class="video-slider-wrapper">
+        <button type="button" class="video-nav video-nav-left" aria-label="Previous video">&#10094;</button>
+        <div class="video-slider" id="videoSlider">
+          <div class="video-card">
+            <video controls muted playsinline preload="metadata" poster="videos/video-1-poster.jpg">
+              <source src="Basic context.mp4" type="video/mp4">
+              Your browser does not support HTML video.
+            </video>
+            <div class="vc-meta">
+              <div class="vc-tag">Video 1</div>
+              <div class="vc-title">Data Source Overview</div>
+              <div class="vc-desc">A narrative walkthrough of primary NABARD and RBI datasets, showing how UP DCCB evidence maps to the advisory model.</div>
+              <div class="vc-context">This video explores the foundational data sources including NABARD annual reports, RBI circulars, and UP field diagnostics, highlighting key metrics like DCCB counts, PACS coverage, and compliance baselines that inform the digital transformation strategy.</div>
+              <div class="vc-note">File: Basic context.mp4</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <video controls muted playsinline preload="metadata" poster="videos/video-2-poster.jpg">
+              <source src="Untitled design (1).mp4" type="video/mp4">
+              Your browser does not support HTML video.
+            </video>
+            <div class="vc-meta">
+              <div class="vc-tag">Video 2</div>
+              <div class="vc-title">Field Diagnostics &amp; Impact</div>
+              <div class="vc-desc">A short visual brief on UP DCCB field diagnostics, manual baselines and the digital readiness story behind the dataset.</div>
+              <div class="vc-note">File: Untitled design (1).mp4</div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="video-nav video-nav-right" aria-label="Next video">&#10095;</button>
+      </div>
     </div>
   </div>
 </section>
@@ -554,31 +656,71 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
 <div class="wrap">
 <div class="sh rv tc">
   <div class="se">Section 8 &middot; Complete Source Directory</div>
-  <h2 class="st tc">All <span class="ac">20 Primary Sources</span></h2>
+  <h2 class="st tc">All <span class="ac">20 Primary Sources</span> <span style="font-size:14px;color:var(--saffron);font-family:'DM Mono',monospace;font-weight:400;letter-spacing:1px;">— click to open ↗</span></h2>
   <div class="sr" style="margin:0 auto 14px;"></div>
   <p class="sd2" style="margin:0 auto;">Every statistic and formula in the DCCB UP Framework cites one or more of these 20 sources, cited by code (S-01 through S-20) throughout the main presentation.</p>
 </div>
 <div class="sg2 rv mt32">
-  <div id="S-01" class="sc2"><div class="sct"><span class="sn">S-01</span><span class="stt">NABARD Annual Report 2024&ndash;25</span><span class="sy">2025</span></div><div class="sdt">National Bank for Agriculture and Rural Development. Cooperative Credit Structure, DCCB performance data (351 DCCBs total FY 2024&ndash;25), PACS statistics, rural credit flow, &#8377;42,000+ crore infusion FY24&ndash;25, cooperative banking reform mandate.</div><div class="stg"><span class="sg">DCCB Count 351</span><span class="sf">&#8377;42K Cr Infusion</span><span class="gd">Credit Flow</span></div></div>
-  <div id="S-02" class="sc2"><div class="sct"><span class="sn">S-02</span><span class="stt">RBI Report on Trend and Progress of Banking in India 2023&ndash;24</span><span class="sy">2024</span></div><div class="sdt">Reserve Bank of India. Cooperative bank CBS mandate compliance tracking, digital banking penetration, NPA data, V-CIP (video KYC) regulatory framework (2020 onward).</div><div class="stg"><span class="sf">CBS Compliance</span><span class="sk">Digital Banking</span><span class="gd">NPA Data</span></div></div>
-  <div id="S-03" class="sc2"><div class="sct"><span class="sn">S-03</span><span class="stt">NPCI Annual Report 2023&ndash;24</span><span class="sy">2024</span></div><div class="sdt">National Payments Corporation of India. UPI: 10.17 billion transactions/month peak. AePS network data, NACH volumes, BBPS commission &#8377;4/txn. BC agent monthly income: &#8377;10,950&ndash;18,450 (AePS + BBPS + account opening + KCC assistance). USSD *99# data.</div><div class="stg"><span class="sk">UPI 10.17Bn/mo</span><span class="sg">AePS/BC</span><span class="sf">BBPS &#8377;4/txn</span></div></div>
-  <div id="S-04" class="sc2"><div class="sct"><span class="sn">S-04</span><span class="stt">SBI Annual Report 2024&ndash;25 (FY25)</span><span class="sy">2025</span></div><div class="sdt">State Bank of India. YONO: 8.77 crore registered users, 64% SB accounts opened via YONO FY25. YONO development cost: &#8377;4,000 crore. IT spend &#8377;10,525 crore. Benchmark: what cooperative banks must NOT replicate independently.</div><div class="stg"><span class="sk">YONO Benchmark</span><span class="gd">&#8377;4,000Cr Build Cost</span></div></div>
-  <div id="S-05" class="sc2"><div class="sct"><span class="sn">S-05</span><span class="stt">Ministry of Finance &ndash; PM Jan Dhan Yojana Dashboard</span><span class="sy">2025</span></div><div class="sdt">Government of India. 53.13 crore beneficiary accounts as of March 2025. RuPay debit card issuance data. Zero-balance account statistics. Basis for UP DCCB client Segment A/B/C framework.</div><div class="stg"><span class="sg">53.13Cr Accounts</span><span class="sf">RuPay Cards</span><span class="sk">Client Segments</span></div></div>
-  <div id="S-06" class="sc2"><div class="sct"><span class="sn">S-06</span><span class="stt">NABARD &ndash; Status of Microfinance in India 2022&ndash;23</span><span class="sy">2023</span></div><div class="sdt">NPA recovery rate data: Orange-stage 78% vs Red/NPA-stage 42% (&ndash;36 pp). SHG-Bank Linkage Programme statistics. Cooperative credit delivery benchmarks. KCC NPA rates 8&ndash;12% manual baseline. Core source for EWS business case.</div><div class="stg"><span class="gd">78% vs 42% Recovery</span><span class="sg">SHG Data</span><span class="sf">EWS Basis</span></div></div>
-  <div id="S-07" class="sc2"><div class="sct"><span class="sn">S-07</span><span class="stt">NABARD PACS Computerisation Programme Guidelines</span><span class="sy">2023</span></div><div class="sdt">Ministry of Cooperation. National ERP rollout for 63,000+ PACS. Integration architecture with DCCBs. Cost structure for PACS digitisation. Bhulekh API (state land records) integration specification.</div><div class="stg"><span class="sg">63K PACS ERP</span><span class="sk">Bhulekh API</span><span class="gd">PACS-CBS Linkage</span></div></div>
-  <div id="S-08" class="sc2"><div class="sct"><span class="sn">S-08</span><span class="stt">RBI Master Circular &ndash; Cooperative Banks Prudential Norms 2024</span><span class="sy">2024</span></div><div class="sdt">CRAR minimum 9%. SLR 18.00% of NDTL (fortnightly). CRR 4.5%. NPA: 90 DPD. Risk weights: G-Secs 0%, KCC loans 75%, NPAs 150%. IFRS 9 ECL = PD &times; LGD &times; EAD. NPA provisioning norms. Core compliance framework source.</div><div class="stg"><span class="sf">CRAR 9%</span><span class="sk">SLR 18%</span><span class="gd">90-DPD Rule</span><span class="sg">ECL Formula</span></div></div>
-  <div id="S-09" class="sc2"><div class="sct"><span class="sn">S-09</span><span class="stt">ICICI Bank Annual Report 2024&ndash;25</span><span class="sy">2025</span></div><div class="sdt">Digital Banking segment revenue &#8377;40,264 crore FY25. iMobile Pay: 400+ services. Technology spend 10.7% of operating expenses. Benchmark for large-bank digital cost structure vs DCCB reality.</div><div class="stg"><span class="gd">Large-Bank Benchmark</span><span class="sk">10.7% Tech Spend</span></div></div>
-  <div id="S-10" class="sc2"><div class="sct"><span class="sn">S-10</span><span class="stt">NABARD TAP (Turn Around Plan) Notification 2025</span><span class="sy">2025</span></div><div class="sdt">Coverage of 96 weak RCBs from April 2025. Cooperative banking reform framework formalised. Shared Services mandate and service scope. Priority onboarding for TAP-covered DCCBs with subsidised pricing for 24 months.</div><div class="stg"><span class="sf">TAP 96 RCBs</span><span class="sg">April 2025</span></div></div>
-  <div id="S-11" class="sc2"><div class="sct"><span class="sn">S-11</span><span class="stt">RBI Press Release &ndash; CBS Compliance, Cooperative Banks 2025</span><span class="sy">2025</span></div><div class="sdt">All cooperative banks (except 1 UCB in West Bengal) on CBS as of March 2025. CBS mandate achieved (99.9%). Key finding: CBS &ne; digitalisation &mdash; field diagnostics confirm critical operational gap.</div><div class="stg"><span class="sg">99.9% CBS</span><span class="sk">March 2025</span></div></div>
-  <div id="S-12" class="sc2"><div class="sct"><span class="sn">S-12</span><span class="stt">NABARD &ndash; Diagnostic Study of Digital Readiness in RCBs (UP Field)</span><span class="sy">2024</span></div><div class="sdt">UP DCCB field visits 2024. All operational baselines: 780+ person-hours per OSS cycle; 63-day compliance cycle; CRAR computation ~40 hours; KCC TAT 14&ndash;42 days; cost per application &#8377;1,200.</div><div class="stg"><span class="sf">780+ hrs Baseline</span><span class="gd">63-day Cycle</span><span class="sk">Field Data 2024</span></div></div>
-  <div id="S-13" class="sc2"><div class="sct"><span class="sn">S-13</span><span class="stt">RBI &ndash; ATM Network Data, April 2025</span><span class="sy">2025</span></div><div class="sdt">Total ATMs: 1,31,265 onsite + 82,526 offsite = ~2.13 lakh total. India ATM count: ~1.46 million (incl. white-label). Micro-ATM device cost: &#8377;8,000&ndash;15,000. BC agent income from ATM-facilitated transactions.</div><div class="stg"><span class="sg">2.13L ATMs</span><span class="sf">Micro-ATM &#8377;8&ndash;15K</span></div></div>
-  <div id="S-14" class="sc2"><div class="sct"><span class="sn">S-14</span><span class="stt">NABARD &ndash; Maharashtra AI Credit Scoring Pilot Results 2024</span><span class="sy">2024</span></div><div class="sdt">+18% credit inclusion vs manual. Credit accuracy: manual 67% &rarr; AI 87% (+20 pp). NPA formation reduced 20&ndash;25% with ML EWS. AI model: XGBoost + Random Forest on CBS + NDVI + weather. Core benchmark for all DM-RFI projections.</div><div class="stg"><span class="sg">87% AI Accuracy</span><span class="sf">+18% Inclusion</span><span class="gd">25% NPA Reduction</span></div></div>
-  <div id="S-15" class="sc2"><div class="sct"><span class="sn">S-15</span><span class="stt">NABARD &ndash; Telangana and Odisha PACS Digitisation Impact Study 2023</span><span class="sy">2023</span></div><div class="sdt">Deposit growth at fully digitised PACS: +15.4%. Digital KCC TAT: 14&ndash;42 days &rarr; 2&ndash;5 days (60&ndash;70% reduction). Cost per application: &#8377;1,200 &rarr; &#8377;250 at full digital. Foundation for all KCC LOS calculations.</div><div class="stg"><span class="sg">+15.4% Deposits</span><span class="sf">TAT 60&ndash;70% &#8595;</span><span class="gd">PACS Impact Data</span></div></div>
-  <div id="S-16" class="sc2"><div class="sct"><span class="sn">S-16</span><span class="stt">HDFC Bank Annual Report 2024&ndash;25</span><span class="sy">2025</span></div><div class="sdt">9,092 branches; 20,993 ATMs. LITE mobile banking for low-bandwidth users. Technology described as core investment area. Benchmark for rural-optimised banking technology at cooperative bank scale.</div><div class="stg"><span class="gd">Large-Bank Benchmark</span><span class="sk">LITE Banking</span></div></div>
-  <div id="S-17" class="sc2"><div class="sct"><span class="sn">S-17</span><span class="stt">RBI &ndash; Cybersecurity Framework for Cooperative Banks 2023&ndash;24</span><span class="sy">2024</span></div><div class="sdt">Mandatory VAPT (annual). Endpoint protection requirements. OTP-based customer authentication. AES-256 encryption standard. SOC connectivity guidelines. Individual DCCB VAPT cost: &#8377;1&ndash;3 lakhs/year. Shared SOC: &#8377;3&ndash;8 lakhs/year.</div><div class="stg"><span class="sf">VAPT Mandatory</span><span class="sk">AES-256</span><span class="gd">Cybersec Framework</span></div></div>
-  <div id="S-18" class="sc2"><div class="sct"><span class="sn">S-18</span><span class="stt">Ministry of Finance &ndash; PMFBY Annual Report 2023&ndash;24</span><span class="sy">2024</span></div><div class="sdt">Government premium subsidy 85%+. Farmer premium: 1.5&ndash;2% of sum insured (kharif), 1.5% (rabi). Current KCC enrolment &lt;40% at manual baseline. DM-RFI auto-enrolment target: 98%+. AIDE portal for digital PMFBY integration.</div><div class="stg"><span class="sg">PMFBY Rates</span><span class="sf">85% Subsidy</span><span class="gd">Auto-Enrolment 98%+</span></div></div>
-  <div id="S-19" class="sc2"><div class="sct"><span class="sn">S-19</span><span class="stt">NABARD &ndash; Shared Services Platform Framework Document 2024</span><span class="sy">2024</span></div><div class="sdt">Shared services scope across 351 DCCBs. Target: 130 million cooperative banking customers. &#8377;1,500 crore annual savings from Year 5. 88% average cost reduction vs standalone. Service catalogue with pricing per DCCB. ADEI scoring framework.</div><div class="stg"><span class="sf">88% Cost Reduction</span><span class="sg">130M Customers</span><span class="gd">&#8377;1,500Cr Savings</span></div></div>
-  <div id="S-20" class="sc2"><div class="sct"><span class="sn">S-20</span><span class="stt">UP State Cooperative Bank &ndash; Annual Report &amp; District Data 2023&ndash;24</span><span class="sy">2024</span></div><div class="sdt">50 DCCBs in Uttar Pradesh confirmed. District-wise PACS data. Credit disbursement by region. NPA rates by district. Staff capacity data. Basis for 50-DCCB count, UP field distribution and regional zone mapping.</div><div class="stg"><span class="sg">50 UP DCCBs</span><span class="sf">District Data</span><span class="gd">NPA by Region</span></div></div>
+  <div id="S-01" class="sc2"><div class="sct"><span class="sn">S-01</span><span class="stt">NABARD Annual Report 2024–25</span><span class="sy">2025</span></div><div class="sdt">Key data: 351 DCCBs India FY2025 · ₹42,000+ crore infusion FY24–25 · KCC utilisation return data · cooperative credit structure · rural credit flow totals.</div><div class="stg"><span class="sg">DCCB Count 351</span><span class="sf">₹42K Cr Infusion</span><span class="gd">Credit Flow</span></div>
+<a href="https://www.nabard.org/auth/writereaddata/tender/0409250341NAR-FY2025.pdf?csrt=14473051105695002143" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
+  <div id="S-02" class="sc2"><div class="sct"><span class="sn">S-02</span><span class="stt">RBI Report on Trend and Progress of Banking in India 2023–24</span><span class="sy">2024</span></div><div class="sdt">Key data: CBS mandate compliance · digital banking penetration rates · NPA data · V-CIP (Video KYC) regulatory framework (operative from 2020 onward).</div><div class="stg"><span class="sf">CBS Compliance</span><span class="sk">Digital Banking</span><span class="gd">NPA Data</span></div>
+<a href="https://rbidocs.rbi.org.in/rdocs/Publications/PDFs/0RTP291220258C89B9E5F3F240AEB82AC25A1707A8C6.PDF" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
+  <div id="S-03" class="sc2"><div class="sct"><span class="sn">S-03</span><span class="stt">NPCI Annual Report 2023–24</span><span class="sy">2024</span></div><div class="sdt">Key data: UPI = 10.17 billion transactions/month peak · AePS network statistics · NACH volumes · BBPS commission = ₹4/transaction · BC agent monthly income range ₹10,950–₹18,450 (from AePS + BBPS + account opening + KCC assistance) · USSD *99# data.</div><div class="stg"><span class="sk">UPI 10.17Bn/mo</span><span class="sg">AePS/BC</span><span class="sf">BBPS ₹4/txn</span></div>
+<a href="https://nsdl.co.in/downloadables/pdf/NPBL_Annual_Report_2023-24.pdf" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
+  <div id="S-04" class="sc2"><div class="sct"><span class="sn">S-04</span><span class="stt">SBI Annual Report 2024–25</span><span class="sy">2025</span></div><div class="sdt">Key data: YONO = 8.77 crore registered users · YONO accounts for 64% of regular savings account openings FY25 · YONO development cost = ₹4,000 crore · SBI IT spend = ₹10,525 crore. Benchmark context: what cooperative banks must NOT attempt to replicate independently.</div><div class="stg"><span class="sk">YONO Benchmark</span><span class="gd">₹4,000Cr Build Cost</span></div>
+<a href="https://sbi.bank.in/corporate/SBIAR2425/pdf/SBI%20Annual%20Report%20FY2025%20(English).pdf" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
+  <div id="S-05" class="sc2"><div class="sct"><span class="sn">S-05</span><span class="stt">Ministry of Finance – PM Jan Dhan Yojana Dashboard</span><span class="sy">2025</span></div><div class="sdt">Key data: 53.13 crore beneficiary accounts as of March 2025 · RuPay debit card issuance data · zero-balance account statistics · basis for client Segment A/B/C.</div><div class="stg"><span class="sg">53.13Cr Accounts</span><span class="sf">RuPay Cards</span><span class="sk">Client Segments</span></div>
+<a href="https://www.pmjdy.gov.in/account" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
+  <div id="S-06" class="sc2"><div class="sct"><span class="sn">S-06</span><span class="stt">NABARD – Status of Microfinance in India 2022–23</span><span class="sy">2023</span></div><div class="sdt">Key data: NPA recovery rate at Orange stage = 78% vs Red/NPA stage = 42% (delta = 36 percentage points) · SHG-Bank Linkage Programme statistics · cooperative credit delivery benchmarks · KCC NPA rates at manual baseline = 8–12% at 12 months.</div><div class="stg"><span class="gd">78% vs 42% Recovery</span><span class="sg">SHG Data</span><span class="sf">EWS Basis</span></div>
+<a href="https://mcrhrdi.gov.in/2026/group1/week2/0808244223NABARD-SOMFI%20mirco%20finance.pdf" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
+  <div id="S-07" class="sc2"><div class="sct"><span class="sn">S-07</span><span class="stt">NABARD PACS Computerisation Programme Guidelines (2023)</span><span class="sy">2023</span></div><div class="sdt">Key data: National ERP rollout for 63,000+ PACS · integration architecture with DCCBs · cost structure for PACS digitisation · Bhulekh API integration spec.</div><div class="stg"><span class="sg">63K PACS ERP</span><span class="sk">Bhulekh API</span><span class="gd">PACS-CBS Linkage</span></div>
+<a href="https://www.cooperation.gov.in/sites/default/files/2023-06/Revised%20Scheme%20guidelines%20%28Computerization%20of%20PACS%20project%29.pdf" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
+  <div id="S-08" class="sc2"><div class="sct"><span class="sn">S-08</span><span class="stt">RBI Master Circular – Cooperative Banks Prudential Norms 2024</span><span class="sy">2024</span></div><div class="sdt">Key data: CRAR minimum = 9% · SLR = 18.00% of NDTL (computed fortnightly) · CRR = 4.5% · NPA classification = 90 DPD · Risk weights: G-Secs 0%, AAA bonds 20%, KCC loans 75%, unsecured 100%, NPAs 150% · ECL formula = PD × LGD × EAD (IFRS 9) · NPA provisioning: Sub-Standard 15%, Doubtful Yr1 25%, Yr2+ 40%, Loss 100%.</div><div class="stg"><span class="sf">CRAR 9%</span><span class="sk">SLR 18%</span><span class="gd">90-DPD Rule</span><span class="sg">ECL Formula</span></div>
+<a href="https://www.rbi.org.in/Scripts/BS_ViewMasCirculardetails.aspx?id=12816" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
+  <div id="S-09" class="sc2"><div class="sct"><span class="sn">S-09</span><span class="stt">ICICI Bank Annual Report 2024–25</span><span class="sy">2025</span></div><div class="sdt">Key data: Digital Banking segment revenue = ₹40,264 crore FY25 · iMobile Pay: 400+ services · Technology spend = 10.7% of operating expenses.</div><div class="stg"><span class="gd">Large-Bank Benchmark</span><span class="sk">10.7% Tech Spend</span></div>
+<a href="https://www.icici.bank.in/ms/aboutus/annual-reports/2024-25/html/index.html" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
+  <div id="S-10" class="sc2"><div class="sct"><span class="sn">S-10</span><span class="stt">NABARD TAP (Turn Around Plan) Notification 2025</span><span class="sy">2025</span></div><div class="sdt">Key data: 96 weak RCBs covered from April 2025 · cooperative banking reform framework formalised · shared services mandate scope · priority onboarding with subsidised pricing for 24 months for TAP-covered DCCBs.</div><div class="stg"><span class="sf">TAP 96 RCBs</span><span class="sg">April 2025</span></div>
+<a href="https://www.pib.gov.in/PressNoteDetails.aspx?NoteId=154829&ModuleId=3&reg=3&lang=2" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
+  <div id="S-11" class="sc2"><div class="sct"><span class="sn">S-11</span><span class="stt">RBI Press Release – CBS Compliance, Cooperative Banks 2025</span><span class="sy">2025</span></div><div class="sdt">Key data: 99.9% cooperative banks on CBS as of March 2025 (all except 1 UCB in West Bengal) · CBS mandate achieved · critical finding: CBS ≠ digitalisation.</div><div class="stg"><span class="sg">99.9% CBS</span><span class="sk">March 2025</span></div>
+<a href="https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2237650&reg=3&lang=2" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
+  <div id="S-12" class="sc2"><div class="sct"><span class="sn">S-12</span><span class="stt">NABARD – Diagnostic Study of Digital Readiness in RCBs (UP Field) 2024</span><span class="sy">2024</span></div><div class="sdt">Key data: All manual baselines for UP DCCBs — 780+ person-hours per OSS compliance cycle · 63-day compliance cycle · CRAR computation ~40 person-hours · KCC TAT 14–42 days · cost per KCC application = ₹1,200.</div><div class="stg"><span class="sf">780+ hrs Baseline</span><span class="gd">63-day Cycle</span><span class="sk">Field Data 2024</span></div>
+<a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2077947&reg=3&lang=2" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
+  <div id="S-13" class="sc2"><div class="sct"><span class="sn">S-13</span><span class="stt">RBI – ATM Network Data, April 2025</span><span class="sy">2025</span></div><div class="sdt">Key data: Total ATMs = 1,31,265 onsite + 82,526 offsite ≈ 2.13 lakh total (India total incl. white-label ≈ 1.46 million) · Micro-ATM device cost = ₹8,000–₹15,000.</div><div class="stg"><span class="sg">2.13L ATMs</span><span class="sf">Micro-ATM ₹8–15K</span></div>
+<a href="https://www.rbi.org.in/Scripts/ATMView.aspx" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
+  <div id="S-14" class="sc2"><div class="sct"><span class="sn">S-14</span><span class="stt">NABARD – Maharashtra AI Credit Scoring Pilot Results 2024</span><span class="sy">2024</span></div><div class="sdt">Key data: +18% credit inclusion vs manual baseline · credit accuracy: manual 67% → AI 87% (+20 percentage points) · NPA formation reduced 20–25% with ML EWS · AI model: XGBoost + Random Forest ensemble on CBS + NDVI + weather + CIBIL + NACH · PD score threshold: >65 → mandatory BM review; <35 → auto-approve within limits.</div><div class="stg"><span class="sg">87% AI Accuracy</span><span class="sf">+18% Inclusion</span><span class="gd">25% NPA Reduction</span></div>
+<a href="file:///C:/Users/91708/Downloads/01_IJAGS_54062.pdf" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
+  <div id="S-15" class="sc2"><div class="sct"><span class="sn">S-15</span><span class="stt">NABARD – Telangana and Odisha PACS Digitisation Impact Study 2023</span><span class="sy">2023</span></div><div class="sdt">Key data: Deposit growth at fully digitised PACS = +15.4% · Digital KCC TAT: 14–42 days → 2–5 days (reduction range: 60–70%) · cost per KCC application: ₹1,200 → ₹250 at full digital (reduction: 79%).</div><div class="stg"><span class="sg">+15.4% Deposits</span><span class="sf">TAT 60–70% ↓</span><span class="gd">PACS Impact Data</span></div>
+<a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2223294&reg=3&lang=2" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
+  <div id="S-16" class="sc2"><div class="sct"><span class="sn">S-16</span><span class="stt">HDFC Bank Annual Report 2024–25</span><span class="sy">2025</span></div><div class="sdt">Key data: 9,092 branches · 20,993 ATMs · LITE mobile banking for low-bandwidth · technology described as core investment. Large-bank benchmark for rural-optimised architecture.</div><div class="stg"><span class="gd">Large-Bank Benchmark</span><span class="sk">LITE Banking</span></div>
+<a href="https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/pdf/annual-reports/2024-25/HDFC_Bank_Annual_Report_2024_25-310202.pdf" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
+  <div id="S-17" class="sc2"><div class="sct"><span class="sn">S-17</span><span class="stt">RBI – Cybersecurity Framework for Cooperative Banks 2023–24</span><span class="sy">2024</span></div><div class="sdt">Key data: VAPT (Vulnerability Assessment and Penetration Testing) mandatory annually · Endpoint protection required · OTP authentication standard · AES-256 encryption · SOC connectivity guidelines · Individual DCCB VAPT cost = ₹1–3 lakhs/year · Shared SOC = ₹3–8 lakhs/year.</div><div class="stg"><span class="sf">VAPT Mandatory</span><span class="sk">AES-256</span><span class="gd">Cybersec Framework</span></div>
+<a href="https://rbi.org.in/commonman/english/Scripts/PressReleases.aspx?Id=3800" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
+  <div id="S-18" class="sc2"><div class="sct"><span class="sn">S-18</span><span class="stt">Ministry of Finance – PMFBY Annual Report 2023–24</span><span class="sy">2024</span></div><div class="sdt">Key data: Government premium subsidy = 85%+ · farmer premium rate: 1.5–2% of sum insured (kharif), 1.5% (rabi) · current enrolment at KCC disbursement (manual) <40% · DM-RFI auto-enrolment target: 98%+ · AIDE portal for digital PMFBY integration.</div><div class="stg"><span class="sg">PMFBY Rates</span><span class="sf">85% Subsidy</span><span class="gd">Auto-Enrolment 98%+</span></div>
+<a href="https://nfwpis.da.gov.in/documents/AnnualReport2023-24English.pdf" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
+  <div id="S-19" class="sc2"><div class="sct"><span class="sn">S-19</span><span class="stt">NABARD – Shared Services Platform Framework Document 2024</span><span class="sy">2024</span></div><div class="sdt">Key data: Shared services across 351 DCCBs · target: 130 million cooperative banking customers · ₹1,500 crore annual savings from Year 5 · 88% average cost reduction vs standalone · full service catalogue with per-DCCB pricing: CBS Hosting standalone ₹8–15L → shared ₹2–4L (saving ~70%) WhatsApp Banking API standalone ₹5–15L → shared ₹50K–1L (saving ~90%) AML / Compliance Engine standalone ₹10–30L → shared ₹1–3L (saving ~90%) Cybersecurity SOC standalone ₹50–100L → shared ₹3–8L (saving ~93%) Regulatory Reporting Engine standalone ₹5–12L → shared ₹1–2L (saving ~83%) MIS / BI Platform standalone ₹3–8L → shared ₹0.5–1L (saving ~87%) HRMS SaaS (200 staff) standalone ₹3–5L → shared ₹1–2L (saving ~60%) TOTAL standalone ₹84–185L → shared ₹8–21L (saving ~88%) ADEI (Annual DCCB Digital Effectiveness Index) scoring framework.</div><div class="stg"><span class="sf">88% Cost Reduction</span><span class="sg">130M Customers</span><span class="gd">₹1,500Cr Savings</span></div>
+<a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2201752&reg=3&lang=2" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
+  <div id="S-20" class="sc2"><div class="sct"><span class="sn">S-20</span><span class="stt">UP State Cooperative Bank – Annual Report & District Data 2023–24</span><span class="sy">2024</span></div><div class="sdt">Key data: 50 DCCBs in Uttar Pradesh · district-wise PACS data · credit disbursement by region · NPA rates by district · staff capacity data.</div><div class="stg"><span class="sg">50 UP DCCBs</span><span class="sf">District Data</span><span class="gd">NPA by Region</span></div>
+<a href="https://www.cooperation.gov.in/sites/default/files/2025-03/Annual%20Report%202023-24_English.pdf" target="_blank" rel="noopener noreferrer" class="src-open-link"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View Source →</a>
+</div>
 </div>
 </div>
 </section>
@@ -611,7 +753,7 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
     <ul style="list-style:none;">
       <li style="margin-bottom:7px;"><a href="#gbpem" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:12.5px;">GBPEM Matrix</a></li>
       <li style="margin-bottom:7px;"><a href="#mvds" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:12.5px;">MVDS by Category</a></li>
-      <li style="margin-bottom:7px;"><a href="#allsrc" style="color:rgba(255,255,255,.35);text-decoration:none;font-size:12.5px;">All 20 Sources</a></li>
+      <li style="margin-bottom:7px;"><a href="#allsrc" style="color:var(--saffron-l);text-decoration:none;font-size:12.5px;font-weight:600;">All 20 Sources ↓</a></li>
       <li style="margin-bottom:7px;"><a href="index.html" style="color:var(--saffron-l);text-decoration:none;font-size:12.5px;font-weight:600;">&#8592; Main Presentation</a></li>
     </ul>
   </div>
@@ -623,6 +765,57 @@ footer::before{content:'';position:absolute;inset:0;background:radial-gradient(e
 </div>
 </footer>
 
+<canvas id="mech-canvas-src"></canvas>
+<script>
+(function(){
+  const c=document.getElementById('mech-canvas-src');
+  if(!c)return;
+  const ctx=c.getContext('2d');
+  let W,H,nodes=[],pulses=[];
+  const PAL=['#E8750A','#C9920A','#2D6A4F','#1565C0'];
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;}
+  resize();window.addEventListener('resize',()=>{resize();init();},{passive:true});
+  function rand(a,b){return a+Math.random()*(b-a);}
+  function init(){
+    nodes=[];
+    const cols=Math.ceil(W/140),rows=Math.ceil(H/140);
+    for(let r=0;r<=rows;r++)for(let cl=0;cl<=cols;cl++){
+      nodes.push({x:cl*140+rand(-20,20),y:r*140+rand(-20,20),
+        col:PAL[Math.floor(Math.random()*PAL.length)],
+        r:rand(1,2.5),vx:rand(-.05,.05),vy:rand(-.05,.05)});
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    /* Horizontal and vertical grid lines */
+    ctx.strokeStyle='rgba(201,146,10,.08)';ctx.lineWidth=.5;
+    for(let x=0;x<W;x+=140){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+    for(let y=0;y<H;y+=140){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+    /* Nodes */
+    nodes.forEach(n=>{
+      n.x+=n.vx;n.y+=n.vy;
+      if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1;
+      ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+      ctx.fillStyle=n.col+'44';ctx.fill();
+    });
+    /* Occasional pulses */
+    if(Math.random()<.003){
+      const ni=Math.floor(Math.random()*nodes.length);
+      pulses.push({x:nodes[ni].x,y:nodes[ni].y,r:0,col:PAL[Math.floor(Math.random()*PAL.length)]});
+    }
+    pulses.forEach((p,i)=>{
+      p.r+=.6;const alpha=(1-p.r/60)*.3;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.strokeStyle=p.col+Math.round(alpha*255).toString(16).padStart(2,'0');
+      ctx.lineWidth=.8;ctx.stroke();
+      if(p.r>=60)pulses[i]=null;
+    });
+    for(let i=pulses.length-1;i>=0;i--)if(!pulses[i])pulses.splice(i,1);
+    requestAnimationFrame(draw);
+  }
+  init();draw();
+})();
+</script>
 <script>
 'use strict';
 const P=document.getElementById('prog');
@@ -644,6 +837,48 @@ new Chart(document.getElementById('costChart'),{type:'bar',data:{labels:['CBS Ho
 new Chart(document.getElementById('npaChart'),{type:'bar',data:{labels:['Green\n(0 DPD)','Amber\n(5-30 DPD)','Orange\n(30-60 DPD)','Red / NPA\n(90+ DPD)'],datasets:[{label:'Recovery Probability (%)',data:[95,78,65,42],backgroundColor:[SG,GL,SF,RD],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.parsed+'% recovery probability'}}},scales:{y:{grid:{color:GC},ticks:{color:'#7A8FA6',callback:v=>v+'%'},min:0,max:100},x:{grid:{display:false},ticks:{color:'#7A8FA6',font:{size:9}}}}}});
 new Chart(document.getElementById('gbpemChart'),{type:'bar',data:{labels:['ATM/AePS\n23','BBPS\n23','UPI/AePS\n22','RuPay\n22','Insurance\n22','Compl.Eng\n21','KCC LOS\n20','NPA EWS\n20'],datasets:[{label:'GBPEM Score /25',data:[23,23,22,22,22,21,20,20],backgroundColor:[SG,SG,SG+'CC',SG+'CC',SG+'CC',SF,GL,GL],borderRadius:5,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' Score: '+c.parsed+'/25'}}},scales:{y:{grid:{color:GC},ticks:{color:'#7A8FA6'},min:16,max:25,title:{display:true,text:'Score /25',color:'#7A8FA6',font:{size:10}}},x:{grid:{display:false},ticks:{color:'#7A8FA6',font:{size:9}}}}}});
 new Chart(document.getElementById('mvdsChart'),{type:'bar',data:{labels:['PDC-RFI\n(6 components)','PD-RFI\n(12 components)','DM-RFI\n(20 components)'],datasets:[{label:'One-Time Cost Min (INR L)',data:[10,35,150],backgroundColor:SF+'99',borderRadius:5,borderSkipped:false},{label:'One-Time Cost Max (INR L)',data:[25,75,350],backgroundColor:SG+'99',borderRadius:5,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'rgba(255,255,255,.7)',font:{size:10},padding:10}}},scales:{y:{grid:{color:GD},ticks:{color:'rgba(255,255,255,.5)',callback:v=>'INR'+v+'L'},title:{display:true,text:'Cost (INR Lakhs)',color:'rgba(255,255,255,.5)',font:{size:10}}},x:{grid:{display:false},ticks:{color:'rgba(255,255,255,.5)',font:{size:10}}}}}});
+</script>
+<script>
+(function(){
+  const slider=document.getElementById('videoSlider');
+  if(!slider) return;
+  const cards=Array.from(slider.querySelectorAll('.video-card'));
+  const videos=Array.from(slider.querySelectorAll('video'));
+  const leftBtn=document.querySelector('.video-nav-left');
+  const rightBtn=document.querySelector('.video-nav-right');
+  let currentIndex=0;
+  let autoTimer=null;
+  const slideTo=index=>{
+    const target=(index+cards.length)%cards.length;
+    currentIndex=target;
+    const card=cards[target];
+    if(card) slider.scrollTo({left:card.offsetLeft,behavior:'smooth'});
+  };
+  const isPlaying=()=>videos.some(v=>!v.paused && !v.ended);
+  const resetAuto=()=>{
+    clearTimeout(autoTimer);
+    autoTimer=setTimeout(()=>{
+      if(!isPlaying()) slideTo(currentIndex+1);
+    },3000);
+  };
+  leftBtn?.addEventListener('click',()=>{ slideTo(currentIndex-1); resetAuto(); });
+  rightBtn?.addEventListener('click',()=>{ slideTo(currentIndex+1); resetAuto(); });
+  videos.forEach(video=>{
+    video.addEventListener('play',()=>{ clearTimeout(autoTimer); });
+    video.addEventListener('pause',resetAuto);
+    video.addEventListener('ended',resetAuto);
+  });
+  slider.addEventListener('scroll',()=>{
+    const left=slider.scrollLeft;
+    let bestIndex=0, bestDiff=Infinity;
+    cards.forEach((card, idx)=>{
+      const diff=Math.abs(card.offsetLeft-left);
+      if(diff<bestDiff){ bestDiff=diff; bestIndex=idx; }
+    });
+    currentIndex=bestIndex;
+  });
+  window.addEventListener('load',()=>{ slideTo(0); resetAuto(); });
+})();
 </script>
 </body>
 </html>
